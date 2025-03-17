@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style/general.css">
+  <link rel="stylesheet" href="style/topbar.css">
+  <link rel="stylesheet" href="style/new_hachathos-card.css">
+  <link rel="stylesheet" href="style/competition.css">
+  <link rel="stylesheet" href="style/foooter.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+  <header>
+    <nav class="nav-menu">
+      <div class="home">
+        <a href="index.html">
+          <img src="https://live.staticflickr.com/124/337160380_f5681cab06_w.jpg">
+          Home
+        </a>
+      </div>
+
+      <ul class="nav-list">
+        <li class="list-item">
+          <a href="competition.html">
+            Hackathons
+          </a>
+        </li>
+
+        <li class="list-item">
+          <a href="person-account.html">
+            My account
+          </a>
+        </li>
+
+        <li class="list-item">
+          <a href="rating.html">
+            Rating
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </header>
+
+  
+  <h1>Hackathons</h1>
+  <div class="main-top">
+    <p>filter</p>
+    <p>search</p>
+    <p>sort</p> 
+  </div>
+  <main>
+    <div class="leftbar">
+      <div class="categories">
+        <form>
+          <h2>Filter by Categories</h2>
+          <label>
+            <input type="checkbox" name="category" value="ai">
+            Artificial Intelligence
+          </label><br>
+          <label>
+            <input type="checkbox" name="category" value="web">
+            Web Development
+          </label><br>
+          <label>
+            <input type="checkbox" name="category" value="blockchain">
+            Blockchain
+          </label><br>
+          <label>
+            <input type="checkbox" name="category" value="databases">
+            Databases
+          </label><br>
+          <label>
+            <input type="checkbox" name="category" value="gaming">
+            Gaming
+          </label>
+        </form>
+      </div>
+    </div>
+    
+    <div class="card-grid-competition">
+      <div class="card">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <img src="images/image1.png" class="card-img">
+        </div>
+        <div class="card-content">
+          <h2 class="name">WcHacks</h2>
+          <p class="theme">Robotic Process Automation</p>
+          <p class="date">01.03-02.03, 2025</p>
+          <p class="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
+            porttitor.Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.
+          </p>
+          <button class="button">View more</button>
+          <!-- <div class="label">&#xB7; Скоро буде</div> -->
+          <!-- <p class="addres">США, Нью йорк, РТІ</p> -->
+          <!-- <p class="prize">&#36;<strong style="color: black;"> 275 </strong>in prizes</p> -->
+        </div>
+
+      </div>
+
+      <div class="card">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <img src="images/image2.png" class="card-img">
+        </div>
+        <div class="card-content">
+          <h2 class="name">One Trillion Agents Hackaton</h2>
+          <p class="theme">Web, gaming</p>
+          <p class="date">31.12-2.05</p>
+          <p class="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
+            porttitor. Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.
+          </p>
+          <button class="button">View more</button>
+        </div>
+      </div>
+      <!-- <p class="addres">Онлайн</p> -->
+      <!-- <div class="label">3 до кінця</div> -->
+      <!-- <p class="prize">&#36;<strong style="color: black;"> 15,500 </strong>in prizes</p> -->
+
+
+      <div class="card">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <img src="images/image3.png" class="card-img">
+        </div>
+        <div class="card-content">
+          <h2 class="name">Predictive AI In Healthcare with FHIR®</h2>
+          <p class="theme">Machine Learning/AI</p>
+          <p class="date">18.11-02.05</p>
+          <p class="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
+            porttitor.
+            Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.</p>
+          <button class="button">View more</button>
+        </div>
+        <!-- <p class="addres">Онлайн</p> -->
+        <!-- <p class="prize">&#36;<strong style="color: black;"> 25,000 </strong>in prizes</p> -->
+      </div>
+
+      <div class="card">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <img src="images/image4.png" class="card-img">
+        </div>
+        <div class="card-content">
+          <h2 class="name">Azure AI Developer Hackathon</h2>
+          <p class="theme">Machine Learning/AI</p>
+          <p class="date">18.02-28.05</p>
+          <p class="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
+            porttitor.
+            Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.</p>
+          <button class="button">View more</button>
+
+          <!-- <p class="addres">Онлайн</p> -->
+          <!-- <p class="prize">&#36;<strong style="color: black;"> 10,000 </strong>in prizes</p> -->
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <img src="images/image5.png" class="card-img">
+        </div>
+        <div class="card-content">
+          <h2 class="name">Code fest</h2>
+          <p class="theme">Databases, Web</p>
+          <p class="date">06.02-16.03</p>
+          <p class="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
+            porttitor.
+            Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.</p>
+          <button class="button">View More</button>
+
+          <!-- <p class="addres">Онлайн</p> -->
+          <!-- <p class="prize">&#36; <strong style="color: black;"> 1,000 </strong>in prizes</p> -->
+        </div>
+
+      </div>
+
+      <div class="card">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <img src="images/image6.png" class="card-img">
+        </div>
+
+        <div class="card-content">
+          <p class="name">Nova Hacks III</p>
+          <p class="theme">Blockchain, Fintech</p>
+          <p class="date">09.02-09.03</p>
+          <button class="button">View More</button>
+          <p class="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
+            porttitor.
+            Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.</p>
+
+          <!-- <p class="addres">Онлайн</p> -->
+          <!-- <p class="prize">&#36;<strong style="color: black;"> 0 </strong>in prizes</p> -->
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="inner-footer">
+      <div class="foooter-third">
+        <div class="logo-container">
+          <img class="logo" src="images/star.png">
+        </div>
+      </div>
+
+      <div class="footer-third">
+        <h1>USEFUL LINKS</h1>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="#">Shop</a>
+        <a href="#">Blog</a>
+      </div>
+
+      <div class="footer-third">
+        <h1>CONTACT</h1>
+        <a href="#">INST: marta</a>
+        <a href="#">FB: marta</a>
+        <a href="https://github.com/irlknn" target="_blank">Github: irlknn</a>
+        <p>© 2025 site</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

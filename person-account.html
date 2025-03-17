@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style/general.css">
+  <link rel="stylesheet" href="style/topbar.css">
+  <link rel="stylesheet" href="style/account.css">
+  <link rel="stylesheet" href="style/account_topbar.css">
+  <link rel="stylesheet" href="style/new_hachathos-card.css">
+  <link rel="stylesheet" href="style/foooter.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+  <!-- <nav class="nav-menu">
+      <div class="home">
+        <a href="index.html">
+          <img src="images/star.png">
+          Home
+        </a>
+      </div>
+
+      <ul class="nav-list">
+        <li class="list-item">
+          <a href="competition.html">
+            Hackathons
+          </a>
+        </li>
+
+        <li class="list-item">
+          <a href="person-account.html">
+            My account
+          </a>
+        </li>
+
+        <li class="list-item">
+          <a href="rating.html">
+            Rating
+          </a>
+        </li>
+
+      </ul>
+    </nav> -->
+
+  <header class="navigation">
+    <div class="account_home">
+      <a href="index.html">
+        <img src="https://live.staticflickr.com/124/337160380_f5681cab06_w.jpg">
+        Home
+      </a>
+    </div>
+
+    <div class="icons">
+      <button class="plus-button">
+        <img src="images/plus.png" class="plus-button">
+        <div class="tooltip">create an application</div>
+      </button>
+      <img src="https://www.svgrepo.com/show/456992/account.svg">
+      <img src="https://www.svgrepo.com/show/506800/burger-menu.svg" class="menu" onclick="toggleMenu()">
+
+      <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+          <div class="menu-info">
+            <img src="https://www.svgrepo.com/show/506800/burger-menu.svg" class="menu">
+            <h3>menu</h3>
+          </div>
+          <hr>
+
+          <a href="competition.html" class="sub-menu-link">
+            <p>more hackathons</p>
+            <span>></span>
+          </a>
+
+          <a href="rating.html" class="sub-menu-link">
+            <p>leaderboard </p>
+            <span>></span>
+          </a>
+
+          <a href="#" class="sub-menu-link">
+            <p>log out</p>
+            <span>></span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- <button class="exit-button">Exit</button> -->
+    <!-- <img src="https://icons.veryicon.com/png/o/miscellaneous/administration/account-25.png" class="account-pic"> -->
+    <!-- <button class="register-button">Увійти</button> -->
+  </header>
+
+  <main>
+    <div class="account-bg">
+      <!-- <img src="https://i.pinimg.com/1200x/4d/79/d6/4d79d6bef684367052b409e2ef9a9ede.jpg"> -->
+      <div class="inner-info">
+        <img src="images/account-pic.png" class="account-pic">
+        <p class="account-nic">irlknn</p>
+      </div>
+    </div>
+
+    <section class="applications">
+      <div class="tab">
+        <button class="tablinks" onclick="openList(event, 'Active')">
+          Active
+        </button>
+
+        <button class="tablinks" onclick="openList(event, 'In_process')">
+          In process
+        </button>
+
+        <button class="tablinks" onclick="openList(event, 'Completed')">
+          Completed
+        </button>
+      </div>
+
+      <div id="Active" class="tabcontent">
+        <!-- Додати Динамічне завантаження даних -->
+        <div class="no-content">
+          <img src="https://i.pinimg.com/736x/54/9c/10/549c10713685a3162b9f71387c7f1914.jpg" class="no-content">
+          <h3>No active applications</h3>
+          <h3>Look for some here &#8595;</h3>
+          <button class="button">
+            <a href="competition.html">More hackathons</a>
+          </button>
+
+        </div>
+      </div>
+
+      <div id="In_process" class="tabcontent">
+        <div class="content-wrapper">
+
+          <div class="card-grid">
+            <div class="card">
+              <div class="image-content">
+                <span class="overlay"></span>
+                <img src="images/image1.png" class="card-img">
+              </div>
+              <div class="card-content">
+                <h2 class="name">WcHacks</h2>
+                <p class="theme">Robotic Process Automation</p>
+                <p class="date">01.03-02.03, 2025</p>
+                <p class="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien
+                  posuere
+                  porttitor.Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus
+                  dignissim.
+                </p>
+                <button class="button">View more</button>
+                <!-- <div class="label">&#xB7; Скоро буде</div> -->
+                <!-- <p class="addres">США, Нью йорк, РТІ</p> -->
+                <!-- <p class="prize">&#36;<strong style="color: black;"> 275 </strong>in prizes</p> -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="Completed" class="tabcontent">
+        <div class="content-wrapper">
+          <div class="card-grid">
+            <div class="card">
+              <div class="image-content">
+                <span class="overlay"></span>
+                <img src="images/image7.png" class="card-img">
+              </div>
+              <div class="card-content">
+                <h2 class="name">Cat Hacks</h2>
+
+                <p class="name">Cat Hacks</p>
+                <p class="date">Hackathon ended 18.12.2024</p>
+                <p class="status">3 place</p>
+                <p class="rules">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
+                  porttitor.
+                  Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.
+                </p>
+                <button class="button">More</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- <h1>My applications</h1>
+    <section class="card-grid">
+      <div class="card-container">
+
+        <img class="hacaton-pic" src="images/image1.png">
+        <div class="info-container">
+          <p class="name">WcHacks</p>
+          <p class="date">Application created 15.02</p>
+          <p class="status">Process</p>
+          <button class="details-button">More</button>
+        </div>
+        <p class="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis dolor, nec
+          pulvinar magna. Etiam eu leo ut quam tempus consectetur. Etiam et sapien ac lacus commodo molestie.
+        </p>
+      </div>
+
+      <div class="card-container">
+        <img class="hacaton-pic" src="images/image6.png">
+        <div class="info-container">
+          <p class="name">Nova Hacks III</p>
+          <p class="date">Application created 03.06</p>
+          <p class="status">Process</p>
+          <button class="details-button">More</button>
+        </div>
+        <p class="rules">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere porttitor.
+          Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.
+        </p>
+      </div>
+
+      <div class="card-container">
+        <img class="hacaton-pic" src="images/image7.png">
+        <div class="info-container">
+          <p class="name">Cat Hacks</p>
+          <p class="date">Hackathon ended 18.12.2024</p>
+          <p class="status">3 place</p>
+          <button class="details-button">More</button>
+        </div>
+        <p class="rules">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere porttitor.
+          Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.
+        </p>
+      </div> -->
+
+    <!-- <div class="card">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis dolor, nec pulvinar magna. Etiam eu leo ut quam tempus consectetur. Etiam et sapien ac lacus commodo molestie. Sed sodales erat dapibus, rhoncus mauris eget, laoreet velit. Duis a fringilla massa, et dignissim mi. Ut aliquam ex rhoncus augue interdum porttitor. Maecenas varius orci a leo viverra pretium. Mauris vel efficitur orci. Phasellus dui nisi, fringilla non libero non, facilisis iaculis velit. In at magna eleifend, iaculis massa sit amet, tincidunt risus. Donec dapibus libero lorem, ut varius ipsum malesuada vel. Fusce non venenatis nulla. Integer finibus neque ac.</p>
+        </div>
+
+        <div class="card">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis dolor, nec pulvinar magna. Etiam eu leo ut quam tempus consectetur. Etiam et sapien ac lacus commodo molestie. Sed sodales erat dapibus, rhoncus mauris eget, laoreet velit. Duis a fringilla massa, et dignissim mi. Ut aliquam ex rhoncus augue interdum porttitor. Maecenas varius orci a leo viverra pretium. Mauris vel efficitur orci. Phasellus dui nisi, fringilla non libero non, facilisis iaculis velit. In at magna eleifend, iaculis massa sit amet, tincidunt risus. Donec dapibus libero lorem, ut varius ipsum malesuada vel. Fusce non venenatis nulla. Integer finibus neque ac.</p>
+        </div>
+
+        <div class="card">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis dolor, nec pulvinar magna. Etiam eu leo ut quam tempus consectetur. Etiam et sapien ac lacus commodo molestie. Sed sodales erat dapibus, rhoncus mauris eget, laoreet velit. Duis a fringilla massa, et dignissim mi. Ut aliquam ex rhoncus augue interdum porttitor. Maecenas varius orci a leo viverra pretium. Mauris vel efficitur orci. Phasellus dui nisi, fringilla non libero non, facilisis iaculis velit. In at magna eleifend, iaculis massa sit amet, tincidunt risus. Donec dapibus libero lorem, ut varius ipsum malesuada vel. Fusce non venenatis nulla. Integer finibus neque ac.</p>
+        </div>
+
+        <div class="card">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis dolor, nec pulvinar magna. Etiam eu leo ut quam tempus consectetur. Etiam et sapien ac lacus commodo molestie. Sed sodales erat dapibus, rhoncus mauris eget, laoreet velit. Duis a fringilla massa, et dignissim mi. Ut aliquam ex rhoncus augue interdum porttitor. Maecenas varius orci a leo viverra pretium. Mauris vel efficitur orci. Phasellus dui nisi, fringilla non libero non, facilisis iaculis velit. In at magna eleifend, iaculis massa sit amet, tincidunt risus. Donec dapibus libero lorem, ut varius ipsum malesuada vel. Fusce non venenatis nulla. Integer finibus neque ac.</p>
+        </div> -->
+
+
+    </section>
+  </main>
+
+
+  <footer>
+    <div class="inner-footer">
+      <div class="foooter-third">
+        <div class="logo-container">
+          <img class="logo" src="images/star.png">
+        </div>
+      </div>
+
+      <div class="footer-third">
+        <h1>USEFUL LINKS</h1>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="#">Shop</a>
+        <a href="#">Blog</a>
+      </div>
+
+      <div class="footer-third">
+        <h1>CONTACT</h1>
+        <a href="#">INST: marta</a>
+        <a href="#">FB: marta</a>
+        <a href="https://github.com/irlknn" target="_blank">Github: irlknn</a>
+        <p>© 2025 site</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/account_tabs.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "name": "Hack the North",
+        "date": "September 13-15, 2019",
+        "location": "University of Waterloo, Waterloo, ON",
+        "description": "Hack the North is Canada's biggest hackathon, happening at the University of Waterloo. For 36 hours, 1000 students from around the world will come together to learn something new, create projects, and share them with the world."
+    },
+    {        
+        "id": 2,
+        "name": "Hack the 6ix",
+        "date": "September 21-22, 2019",
+        "location": "University of Toronto, Toronto, ON",
+        "description": "Hack the 6ix is a hackathon that brings together 300 students from across North America to create innovative projects in 36 hours. Whether you're a beginner or a seasoned hacker, we welcome you to join us for a weekend of learning and fun."
+    },
+    {
+        "id": 3,
+        "name": "Hack Western",
+        "date": "October 18-20, 2019",
+        "location": "Western University, London, ON",
+        "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+
+]
