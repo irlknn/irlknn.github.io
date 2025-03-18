@@ -1,34 +1,104 @@
-.first_section{
-    background-color: whitesmoke;
-    padding: 50px 0;
-    text-align: center;
-    width: 100vh;
+*, h1{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.left-side{}
+.title{
+    font-weight: 500;
+    font-size: 35px;
+}
 
-.title{}
+.preview{
+    background-color: whitesmoke;
+    padding: 50px;
+    margin: 40px 0px;
+    display: flex;
+    justify-content: space-around;
+}
 
-.hackathon-image{}
+.left-side{
+    flex: 2;
+    align-items: start;
+    text-align: left;
+    padding: 0 60px;
+    margin: 30px 0;
+    background-color: whitesmoke;
+}
 
-.timer{}
+.image-container{
+    display: inline-block;
+}
 
-.join-button{}
+.hackathon-image{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 11px;
+}
 
-.right-side{}
+.countdown-box{
+    display: flex;
+    gap: 15px;
+    text-align: center;
+}
 
-.hackathon-info{}
+/* .countdown{
+} */
 
-.deadline{}
+.title, .countdown-box{
+    padding: 10px 0;
+}
+
+.join-button{ 
+    background-color: #375B5A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.right-side{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    flex: 1;
+    padding: 10px 20px;
+    margin: 0 30px;
+    background-color: white;
+}
+
+.hackathon-info{
+    
+}
+
+.deadline, .location, .prize, .theme, .hackathon-organizer{
+    margin: 30px 0;
+}
 
 .location{}
 
-.prize{}
+.location img{
+    width: 20px;
+    margin: 0 10px;
+    /* height: 20px; */
+}
+
+.prize{
+    color: rgb(16, 16, 100);
+    text-decoration: underline dotted   rgb(16, 16, 100);
+}
 
 .theme{}
 
 .hackathon-organizer{}
 
-.description{}
+.second-section{
+    background-color: whitesmoke;
+    color: white;
+    padding: 50px 60px;
+}
 
-.rules{}
+.description, .rules{
+    margin: 30px 0;
+}
