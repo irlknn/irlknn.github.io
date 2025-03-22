@@ -1,5 +1,8 @@
 .card-grid {
   display: grid;
+  justify-content: center;
+  align-items: center;
+
   grid-template-columns: 1fr;
   column-gap: 40px;
   row-gap: 40px;
@@ -8,7 +11,7 @@
 
 /* Додати до інших елементів відповідність до розміру екрану!!!!!!! */
 
-.card-container {
+.card {
   border-radius: 10px;
   border: 1px solid black;
 
@@ -51,7 +54,7 @@
 }
 
 .hacaton-pic {
-  width: 90%;
+  width: 100%;
   object-fit: cover;
   border-radius: 11px;
 }
@@ -64,7 +67,7 @@
   padding: 0px 0px 20px 0px;
 }
 
-.details-button{
+.button{
   padding: 10px 15px;
   margin: 15px 0;
   border: none;
@@ -76,7 +79,7 @@
   transition: background-color 0.15s;
 }
 
-.details-button:hover{
+.button:hover{
   background-color: rgb(251, 195, 205);
 }
 

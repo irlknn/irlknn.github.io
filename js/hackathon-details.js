@@ -36,7 +36,7 @@ fetch('json\\hackathons.json')
                             </div>
                         </div>
 
-                        <button class="join-button">Join hackathon</button>
+                        <button class="join-button" id="join-button" onclick = "change()">Join hackathon</button>
                     </div>
 
                     <div class="right-side">
@@ -51,6 +51,7 @@ fetch('json\\hackathons.json')
                         </div>
                     </div>
                 </div>
+
                 <section class="second-section">
                     <p class="description">${hackathon.description}</p>
                     <hr>
@@ -75,7 +76,7 @@ fetch('json\\hackathons.json')
                 document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
 
                 // Додатковий вивід в консоль
-                console.log(days + ":" + hours + ":" + minutes + ":" + seconds);
+                // console.log(days + ":" + hours + ":" + minutes + ":" + seconds);
 
                 if (distance < 0) {
                     Days.innerHTML = "00";
@@ -85,7 +86,7 @@ fetch('json\\hackathons.json')
                 }
             }
 
-            const interval = setInterval(countdown, 1000);
+            const interval = setInterval(countdown, 100);
 
         } else {
             console.error('Hackathon not found');
@@ -95,6 +96,42 @@ fetch('json\\hackathons.json')
         console.error('Error loading hackathon data:', error);
     });
 
+// add check for text content of button 
+function change() {
+    const button = document.getElementById('join-button');
+    button.innerHTML = 'you are joined!';
+    button.style.background = " #679897";
+    // button.style = 'transition: all 3s';
+    setTimeout(() => {
+        button.innerHTML = 'Discard';
+        button.style.background = "red";
+    }, 780);
+
+    const hackathon = {
+        id: hackathonId,
+        name: document.querySelector('.title').textContent,
+        date: document.querySelector('.deadline').textContent,
+        location: document.querySelector('.location').textContent,
+        prize: document.querySelector('.prize').textContent,
+        theme: document.querySelector('.theme').textContent,
+    };
+
+    let joinedHackathons = JSON.parse(localStorage.getItem('joinedHackathons')) || [];
+    joinedHackathons.push(hackathon);
+    localStorage.setItem('joinedHackathons', JSON.stringify(joinedHackathons));
+
+}
 
 
-
+// function add() {
+//     const container = document.getElementById('in_process-container');
+//     const smth = document.createElement("p");
+//     smth.innerHTML = `<p>TEXT</p>`;
+//     container.appendChild(smth);
+//     const table = document.getElementById('table');
+//     let i = 1;
+//     console.log('element was added');
+//     const row = document.createElement("tr");
+//     row.innerHTML = `<td class="row">${i++}</td><td class="row">${i+i}</td>`;
+//     table.appendChild(row);
+// }

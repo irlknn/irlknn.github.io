@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="style/general.css">
   <link rel="stylesheet" href="style/topbar.css">
   <link rel="stylesheet" href="style/new_hachathos-card.css">
+  <!-- <link rel="stylesheet" href="style/hacaton-cards.css"> -->
   <link rel="stylesheet" href="style/competition.css">
   <link rel="stylesheet" href="style/foooter.css">
 
@@ -53,12 +54,21 @@
 
   <h1>Hackathons</h1>
   <div class="main-top">
-    <p>filter</p>
-    <p>search</p>
-    <p>sort</p>
+    <div class="filter" onclick="toggleMenu()"><img src="https://static.thenounproject.com/png/4800805-200.png">Filters</div>
+    <input type="text" placeholder="Search" class="search">
+    <div class="dropdown">
+      <p class="sort-details">sort by</p>
+      <div class="dropdown-content">
+        <a href="#">By 1</a>
+        <a href="#">By 2</a>
+        <a href="#">By 3</a>
+        <a href="#">By 4</a>
+      </div>
+    </div>
   </div>
+  
   <main>
-    <div class="leftbar">
+    <div class="leftbar" id="subMenu">
       <div class="categories">
         <form>
           <h2>Filter by Categories</h2>
@@ -206,7 +216,7 @@
           <p class="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
             porttitor.
             Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.</p>
-          <a href="hackhaton-site-pattern.html?id=1">
+          <a href="hackhaton-site-pattern.html?id=6">
             <button class="button">View more</button>
           </a>
 
@@ -246,6 +256,7 @@
     </div>
   </footer>
 
+  <script src="js/toggle-menu.js"></script>
 </body>
 
 </html>

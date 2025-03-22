@@ -8,7 +8,7 @@ main {
   /* padding: 10px; */
 }
 
-.main-top{
+.main-top {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -19,20 +19,27 @@ main {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-body{
+body {
   background-color: whitesmoke;
 }
 
-.leftbar{
+.leftbar {
+  display: none;
   position: relative;
   left: 0;
-  top: 0;
+  /* bottom: -100%; */
+  /* top: 0; */
   max-width: 200px;
   width: 100%;
   text-align: left;
   padding: 10px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
   background-color: white;
+  transition: all 0.3s;
+}
+
+.leftbar.open-menu{
+  display: block;
 }
 
 .card-grid-competition {
@@ -47,9 +54,72 @@ body{
   /* margin-left: 190px; */
 }
 
+.filter {
+  display: flex;
+  align-items: center;
+  border: 2px solid gray;
+  border-radius: 40px;
+
+  margin: 0 20px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter:hover {
+  background-color: whitesmoke;
+}
+
+.filter img {
+  width: 40px;
+  margin: 0px 5px;
+}
+
+.search{
+  padding: 10px;
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+
+.dropdown {
+  margin-right: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.sort-details{
+  padding: 10px;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+  top: 40px;
+  background-color: rgb(241, 241, 241);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.dropdown-content a{
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-content a:hover{
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+
 @media (max-width: 576px) {
   .card-grid-competition {
-      grid-template-columns: 280px;
+    grid-template-columns: 280px;
   }
 
   /* Смартфони */
@@ -57,14 +127,18 @@ body{
 
 @media (min-width: 577px) and (max-width: 768px) {
   .card-grid-competition {
-      grid-template-columns: 260px 260px;
+    grid-template-columns: 260px 260px;
+  }
+
+  .leftbar{
+    display: none;
   }
   /*768px*/
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .card-grid-competition {
-      grid-template-columns: 260px 260px 260px;
+    grid-template-columns: 260px 260px 260px;
   }
 
   /*1024px*/
@@ -73,8 +147,8 @@ body{
 
 @media (min-width: 1025px) {
   .card-grid-competition {
-      grid-template-columns: 280px 280px 280px;
-      gap: 60px;
+    grid-template-columns: 280px 280px 280px;
+    gap: 60px;
   }
 
 }

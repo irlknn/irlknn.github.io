@@ -33,9 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const member = document.createElement("div");
             member.classList.add("lboard_mem");
             member.innerHTML = `
-                <div class="img">
-                    <img src="${player.image}">
-                </div>
                 <div class="name_bar">
                     <p><span>${index + 1}.</span> ${player.name}</p>
                 </div>
@@ -63,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         document.querySelectorAll(".lboard_mem").forEach(member => {
-            member.style.borderBottom = `3px solid ${borderColor}`;
+            member.style.borderBottom = `8px solid ${borderColor}`;
         });
     }
 

@@ -81,8 +81,14 @@ body {
   width: 150px;
 } */
 
-@media (max-width: 426px){
+@media (max-width: 756px){
   .info{
-    margin: 20px;
+    margin: 0px;
+    padding: 10px;
+  }
+
+  .about-us{
+    margin: 15px;
+    padding: 5px;
   }
 }

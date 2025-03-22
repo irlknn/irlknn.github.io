@@ -1,15 +1,16 @@
-*, h1{
+*,
+h1 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.title{
+.title {
     font-weight: 500;
     font-size: 35px;
 }
 
-.preview{
+.preview {
     background-color: whitesmoke;
     padding: 50px;
     margin: 40px 0px;
@@ -17,7 +18,7 @@
     justify-content: space-around;
 }
 
-.left-side{
+.left-side {
     flex: 2;
     align-items: start;
     text-align: left;
@@ -26,40 +27,39 @@
     background-color: whitesmoke;
 }
 
-.image-container{
+.image-container {
     display: inline-block;
 }
 
-.hackathon-image{
+.hackathon-image {
     width: 100%;
     object-fit: cover;
     border-radius: 11px;
 }
 
-.countdown-box{
+.countdown-box {
     display: flex;
     gap: 15px;
     text-align: center;
 }
 
-/* .countdown{
-} */
-
-.title, .countdown-box{
+.title,
+.countdown-box {
     padding: 10px 0;
 }
 
-.join-button{ 
-    background-color: #375B5A;
-    color: white;
+.join-button {
+    background-color: #679897;
+    /* color: white; */
     border: none;
-    padding: 10px 20px;
+    padding: 15px 20px;
     margin: 10px 0;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
-.right-side{
+.right-side {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     flex: 1;
@@ -68,37 +68,87 @@
     background-color: white;
 }
 
-.hackathon-info{
-    
-}
+.hackathon-info {}
 
-.deadline, .location, .prize, .theme, .hackathon-organizer{
+.deadline,
+.location,
+.prize,
+.theme,
+.hackathon-organizer {
     margin: 30px 0;
 }
 
-.location{}
+.location {}
 
-.location img{
+.location img {
     width: 20px;
     margin: 0 10px;
     /* height: 20px; */
 }
 
-.prize{
+.prize {
     color: rgb(16, 16, 100);
-    text-decoration: underline dotted   rgb(16, 16, 100);
+    text-decoration: underline dotted rgb(16, 16, 100);
 }
 
-.theme{}
+.theme {}
 
-.hackathon-organizer{}
+.hackathon-organizer {}
 
-.second-section{
+.second-section {
     background-color: whitesmoke;
     color: white;
     padding: 50px 60px;
 }
 
-.description, .rules{
+.description,
+.rules {
     margin: 30px 0;
 }
+
+@media (max-width: 500px) {
+    .preview {
+        flex-direction: column;
+    }
+
+    .left-side {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .countdown-box {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .right-side {
+        margin: 0;
+    }
+
+}
+
+
+/* --------------------------------------------------------------- */
+
+table{
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.row{
+    padding: 10px;
+    border: 1px solid rgb(153, 153, 153);
+}
+
+/* th {
+    border: 1px solid rgb(90, 90, 90);
+    /* background-color: lightpink; 
+    background-color: rgb(255, 221, 226);
+} */
