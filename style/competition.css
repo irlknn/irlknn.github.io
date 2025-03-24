@@ -2,6 +2,7 @@ main {
   background-color: whitesmoke;
   display: flex;
   flex-direction: row;
+  position: relative;
   /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
 
   /* margin-left: 90px; */
@@ -145,6 +146,11 @@ body {
   .leftbar{
     display: none;
   }
+
+  .filter img{
+    width: 30px;
+  }
+
   /*768px*/
 }
 
@@ -170,7 +176,7 @@ body {
 .sidenav{
   height: 100%;
   width: 0;
-  position: fixed;
+  position: absolute;
   z-index: 5;
   top: 0;
   left: 0;
@@ -190,6 +196,7 @@ form h2{
 }
 
 .sidenav a, .sidenav label{
+  cursor: pointer;
   padding: 10px 20px;
   text-align: left;
   color: #818181;
@@ -198,7 +205,7 @@ form h2{
 }
 
 .sidenav a:hover, .sidenav label:hover{
-  color: #f1f1f1;
+  color: hsl(0, 0%, 95%);
 }
 
 .sidenav .closebtn{
@@ -206,6 +213,22 @@ form h2{
   top: 0;
   right: 25px;
   font-size: 36px;
+}
+
+.sidenav .searchbtn{
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  color: hsl(0, 0%, 40%);
+  font-size: 14px;
+  background-color: hsl(0, 0%, 80%);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.sidenav .searchbtn:hover, .sidenav .searchbtn:active{
+  color: hsl(0, 0%, 20%);
 }
 
 @media screen and (max-height: 576px) {
