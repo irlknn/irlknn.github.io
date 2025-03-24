@@ -82,14 +82,18 @@ body {
 }
 
 .dropdown {
+  border: 2px solid gray;
+  border-radius: 50px;
   margin: 0px 40px;
   position: relative;
   display: flex;
   flex-direction: row-reverse;
+  
 }
 
 .sort-details{
   padding: 10px;
+  white-space: nowrap
 }
 
 .dropdown-content{
@@ -122,6 +126,14 @@ body {
     grid-template-columns: 280px;
   }
 
+  .filter, .dropdown{
+    margin: 0 10px;
+  }
+
+  .filter img{
+    width: 30px;
+  }
+
   /* Смартфони */
 }
 
@@ -152,3 +164,53 @@ body {
   }
 
 }
+
+/* left side navigation */
+
+.sidenav{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background-color: rgb(17, 17, 17);
+
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+form{
+  margin-top: 60px;
+}
+
+form h2{
+  color: #818181;
+  margin: 15px 0;
+}
+
+.sidenav a, .sidenav label{
+  padding: 10px 20px;
+  text-align: left;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover, .sidenav label:hover{
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn{
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+@media screen and (max-height: 576px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/*-------------------------*/

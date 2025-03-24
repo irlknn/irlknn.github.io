@@ -19,13 +19,13 @@ function openList(evt, status) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    var savedTab = localStorage.getItem("activeTab") || "active"; // Default to "Active" if no tab is saved
+    var savedTab = localStorage.getItem("activeTab") || "active"; 
     var defaultTab = document.querySelector(`.tab button[onclick="openList(event, '${savedTab}')"]`);
-
     if (defaultTab) {
         defaultTab.click();
     }
-
+    
+    // loading joined hackathons
     const joinedHackathons = JSON.parse(localStorage.getItem('joinedHackathons')) || [];
     
     const container = document.getElementById('content-wrapper');

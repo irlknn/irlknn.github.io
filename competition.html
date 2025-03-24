@@ -53,7 +53,7 @@
 
   <h1>Hackathons</h1>
   <div class="main-top">
-    <div class="filter" onclick="toggleMenu()"><img src="https://static.thenounproject.com/png/4800805-200.png">Filters</div>
+    <div class="filter" onclick="openNav()"><img src="https://static.thenounproject.com/png/4800805-200.png">Filters</div>
     <input type="text" placeholder="Search" class="search">
     <div class="dropdown">
       <p class="sort-details">sort by &#8595;</p>
@@ -66,8 +66,37 @@
     </div>
   </div>
   
+  <div id="sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <form>
+      <h2>Filter by Categories</h2>
+      <label>
+        <input type="checkbox">
+        Artificial Intelligence
+      </label>
+      <label>
+        <input type="checkbox">
+        Web Development
+      </label>
+      <label>
+        <input type="checkbox">
+        Blockchain
+      </label>
+      <label>
+        <input type="checkbox">
+        Databases
+      </label>
+      <label>
+        <input type="checkbox">
+        Gaming
+      </label>
+    </form>
+
+  </div>
+
   <main>
-    <div class="leftbar" id="subMenu">
+
+    <!-- <div class="leftbar" id="sidenav">
       <div class="categories">
         <form>
           <h2>Filter by Categories</h2>
@@ -93,7 +122,7 @@
           </label>
         </form>
       </div>
-    </div>
+    </div> -->
 
     <div class="card-grid-competition">
       <div class="card">
@@ -215,7 +244,7 @@
           <p class="rules">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
             porttitor.
             Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.</p>
-          <a href="hackhaton-site-pattern.html?id=1">
+          <a href="hackhaton-site-pattern.html?id=6">
             <button class="button">View more</button>
           </a>
 
@@ -255,7 +284,8 @@
     </div>
   </footer>
 
-  <script src="js/toggle-menu.js"></script>
+  <!-- <script src="js/toggle-menu.js"></script> -->
+  <script src="js/sidenav_competition.js"></script>
 </body>
 
 </html>

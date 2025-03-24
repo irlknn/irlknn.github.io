@@ -163,6 +163,19 @@
   font-weight: 600;
 }
 
+@media (max-width: 576px) {
+  .icons img {
+    width: 30px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {}
+
+@media (min-width: 769px) and (max-width: 1024px) {}
+
+@media (min-width: 1025px) {}
+
 
 /* .account-pic {
   width: 40px;

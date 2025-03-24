@@ -99,12 +99,14 @@ fetch('json\\hackathons.json')
 // add check for text content of button 
 function change() {
     const button = document.getElementById('join-button');
-    button.innerHTML = 'you are joined!';
-    button.style.background = " #679897";
+    button.innerHTML = 'Please, wait';
+    button.style.background = "rgb(103, 152, 151)";
     // button.style = 'transition: all 3s';
     setTimeout(() => {
-        button.innerHTML = 'Discard';
-        button.style.background = "red";
+        button.innerHTML = 'Look in profile';
+        button.style.background = "rgb(103, 135, 152)";
+        button.disabled = true;
+        button.style.cursor = "default";
     }, 780);
 
     const hackathon = {
@@ -117,6 +119,13 @@ function change() {
     };
 
     let joinedHackathons = JSON.parse(localStorage.getItem('joinedHackathons')) || [];
+
+    const alreadyJoined = joinedHackathons.some(h => h.id == hackathonId);
+    if(alreadyJoined){
+        alert('you have already joinrd this hscksthon!');
+        return;
+    }
+
     joinedHackathons.push(hackathon);
     localStorage.setItem('joinedHackathons', JSON.stringify(joinedHackathons));
 
