@@ -1,40 +1,7 @@
 /* Дизайн кнопок для реєстрації і виходу*/
-/* .exit-button {
-  width: 100px;
-}
-
-.register-button,
-.exit-button {
-  font-size: 18px;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 20px;
-  padding: 10px 0;
-  background-color: rgb(250, 207, 214);
-  margin: 0 30px;
-
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.register-button:hover,
-.exit-button:hover {
-  background-color: rgb(251, 195, 205);
-  box-shadow: 2px 2px 8px rgba(16, 16, 16, 0.732);
-  cursor: pointer;
-}
-
-.register-button:active,
-.exit-button:active {
-  background-color: rgb(243, 174, 184);
-} */
-
 body{
   background-color: whitesmoke;
 }
-
-/* h1 {
-  padding: 20px;
-} */
-
 
 .account-bg {
   width: 100%;
@@ -74,46 +41,15 @@ body{
 
 .applications {
   margin: 60px 0;
-  /* background-color: whitesmoke; */
-  /* margin: 20px 40px; */
-
-
-  /* background-color: black; */
 }
-
-/* .grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  row-gap: 20px;
-  column-gap: 40px;
-  padding: 20px;
-  margin: auto;
-} */
-
-/* .details-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 20px;
-  background-color: lightpink;
-  font-size: 14px;
-  align-self: flex-start;
-}
-
-.details-button:hover {
-  background-color: rgb(224, 160, 170);
-  cursor: pointer;
-} */
 
 .tab {
   overflow: hidden;
-  /* margin-left: 60px; */
   background-color: white;
   margin-left: 5px;
 }
 
-
-
-/* Style the buttons inside the tab */
+/* buttons inside the tab */
 .tab button {
   background-color: inherit;
   float: left;
@@ -125,8 +61,7 @@ body{
   padding: 18px 20px;
   font-size: 20px;
   font-weight: 600;
-  color: #3a3d51; /* Default text color */
-  
+  color: #3a3d51;
   transition: all 0.3s;
 }
 
@@ -140,15 +75,9 @@ body{
   color: black;
 }
 
-/* Style the tab content */
 .tabcontent {
   display: none;
   padding: 6px 12px;
-}
-
-
-
-.content-wrapper{
 }
 
 .no-content {
@@ -161,7 +90,6 @@ body{
 
 .no-content img {
   width: 300px;
-
 }
 
 .no-content .button{

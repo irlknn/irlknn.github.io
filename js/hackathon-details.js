@@ -40,15 +40,13 @@ fetch('json\\hackathons.json')
                     </div>
 
                     <div class="right-side">
-                        <div class="hackathon-info">
-                            <p class="deadline">Deadline<br>${hackathon.date}</p>
-                            <hr>
-                            <p class="location"><img src="https://www.svgrepo.com/show/77412/location-point.svg">${hackathon.location}</p>
-                            <p class="prize">&#36; ${hackathon.prize}</p>
-                            <hr>
-                            <p class="theme">${hackathon.theme}</p>
+                        <p class="deadline">Deadline<br>${hackathon.date}</p>
+                        <hr>
+                        <p class="location"><img src="https://www.svgrepo.com/show/77412/location-point.svg">${hackathon.location}</p>
+                        <p class="prize">&#36; ${hackathon.prize}</p>
+                        <hr>
+                        <p class="theme">${hackathon.theme}</p>
 
-                        </div>
                     </div>
                 </div>
 
@@ -130,17 +128,3 @@ function change() {
     localStorage.setItem('joinedHackathons', JSON.stringify(joinedHackathons));
 
 }
-
-
-// function add() {
-//     const container = document.getElementById('in_process-container');
-//     const smth = document.createElement("p");
-//     smth.innerHTML = `<p>TEXT</p>`;
-//     container.appendChild(smth);
-//     const table = document.getElementById('table');
-//     let i = 1;
-//     console.log('element was added');
-//     const row = document.createElement("tr");
-//     row.innerHTML = `<td class="row">${i++}</td><td class="row">${i+i}</td>`;
-//     table.appendChild(row);
-// }

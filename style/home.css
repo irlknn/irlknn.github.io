@@ -17,7 +17,6 @@ body {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  /* transition: box-shadow 0.3s; */
 }
 
 .info {
@@ -33,38 +32,6 @@ body {
   overflow: hidden;
 }
 
-/* .info button{
-  font-size: 18px;
-  background-color: lightpink;
-  border: 1px solid black;
-  border-radius: 15px;
-  margin: 30px 0;
-  padding: 10px 15px;
-  cursor: pointer;
-}
-
-.info button a{
-  color: black;
-  text-decoration: none;
-
-}
-
-.info button:hover{
-  background-color: rgb(224, 160, 170);
-} */
-
-/* .info:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
-} */
-/* 
-.info p{
-  margin: 20px;
-  display: -webkit-box;
-  -webkit-line-clamp: 15;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-} */
-
 .image{
   width: 50%;
   display: flex;
@@ -76,10 +43,6 @@ body {
 .image img{
   max-width: 100%;
 }
-
-/* .logo{
-  width: 150px;
-} */
 
 @media (max-width: 756px){
   .info{

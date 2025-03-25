@@ -33,8 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const grid = document.createElement('div');
     grid.classList.add("card-grid");
 
-    // const tabcontent = document.getElementsByClassName('tabcontent');
-
     if (joinedHackathons.length > 0) {
         joinedHackathons.forEach(hackathon => {
 
@@ -72,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         `;
         container.appendChild(noContent);
-        // container.innerHTML = "<h2>No hackathons joined yet</h2>";
     }
 
 });
@@ -83,9 +80,3 @@ function removeHackathon(id) {
     localStorage.setItem('joinedHackathons', JSON.stringify(joinedHackathons));
     location.reload();
 }
-
-// let subMenu = document.getElementById("subMenu");
-
-// function toggleMenu(){
-//     subMenu.classList.toggle("open-menu");
-// }

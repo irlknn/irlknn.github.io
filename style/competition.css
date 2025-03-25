@@ -3,10 +3,6 @@ main {
   display: flex;
   flex-direction: row;
   position: relative;
-  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
-
-  /* margin-left: 90px; */
-  /* padding: 10px; */
 }
 
 .main-top {
@@ -27,9 +23,6 @@ body {
 .leftbar {
   display: none;
   position: relative;
-  /* left: 0; */
-  /* bottom: -100%; */
-  /* top: 0; */
   max-width: 200px;
   width: 100%;
   text-align: left;
@@ -45,14 +38,12 @@ body {
 
 .card-grid-competition {
   flex: 1;
-  /* background-color: black; */
   display: grid;
   grid-template-columns: 200px 200px 200px;
   justify-content: center;
   align-items: center;
   gap: 40px;
   padding: 20px;
-  /* margin-left: 190px; */
 }
 
 .filter {
@@ -135,7 +126,6 @@ body {
     width: 30px;
   }
 
-  /* Смартфони */
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
@@ -151,15 +141,12 @@ body {
     width: 30px;
   }
 
-  /*768px*/
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .card-grid-competition {
     grid-template-columns: 260px 260px 260px;
   }
-
-  /*1024px*/
 
 }
 

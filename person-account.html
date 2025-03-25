@@ -12,7 +12,6 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="style/general.css">
-  <link rel="stylesheet" href="style/topbar.css">
   <link rel="stylesheet" href="style/account.css">
   <link rel="stylesheet" href="style/account_topbar.css">
   <link rel="stylesheet" href="style/hachathon-card.css">
@@ -37,39 +36,36 @@
         <img src="images/plus.png" class="plus-button">
         <div class="tooltip">create an application</div>
       </button>
-      <img src="https://www.svgrepo.com/show/456992/account.svg">
-      <img src="https://www.svgrepo.com/show/506800/burger-menu.svg" class="menu" onclick="toggleMenu()">
 
+      <img src="https://www.svgrepo.com/show/456992/account.svg">
+
+      <img src="https://www.svgrepo.com/show/506800/burger-menu.svg" class="menu" onclick="toggleMenu()">
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
           <div class="menu-info">
             <img src="https://www.svgrepo.com/show/506800/burger-menu.svg" class="menu">
-            <h3>menu</h3>
+            <h3>Menu</h3>
           </div>
           <hr>
 
           <a href="competition.html" class="sub-menu-link">
-            <p>more hackathons</p>
+            <p>More hackathons</p>
             <span>></span>
           </a>
 
           <a href="rating.html" class="sub-menu-link">
-            <p>leaderboard </p>
+            <p>Leaderboard </p>
             <span>></span>
           </a>
 
           <a href="#" class="sub-menu-link">
-            <p>log out</p>
+            <p>Log out</p>
             <span>></span>
           </a>
 
         </div>
       </div>
     </div>
-
-    <!-- <button class="exit-button">Exit</button> -->
-    <!-- <img src="https://icons.veryicon.com/png/o/miscellaneous/administration/account-25.png" class="account-pic"> -->
-    <!-- <button class="register-button">Увійти</button> -->
   </header>
 
   <main>
@@ -97,6 +93,7 @@
       </div>
 
       <div id="Active" class="tabcontent">
+        <!-- додати динамічне завантаження -->
         <div class="no-content">
           <img src="https://i.pinimg.com/736x/54/9c/10/549c10713685a3162b9f71387c7f1914.jpg" class="no-content">
           <h3>No active applications</h3>
@@ -110,34 +107,32 @@
 
       <div id="In_process" class="tabcontent">
         <div class="content-wrapper" id="content-wrapper">
-          <!-- Динамічне завантаження даних -->
+          <!-- динамічне завантаження даних -->
         </div>
       </div>
 
       <div id="Completed" class="tabcontent">
-        <div class="content-wrapper">
-          <div class="card-grid">
-            <div class="card">
-              <div class="image-content">
-                <span class="overlay"></span>
-                <img src="images/image7.png" class="card-img">
-              </div>
-              <div class="card-content">
-                <h2 class="name">Cat Hacks</h2>
+        <!-- додати завантаження даних -->
+        <div class="card-grid">
+          <div class="card">
+            <div class="image-content">
+              <span class="overlay"></span>
+              <img src="images/image7.png" class="card-img">
+            </div>
+            <div class="card-content">
+              <h2 class="name">Cat Hacks</h2>
 
-                <p class="name">Cat Hacks</p>
-                <p class="date">Hackathon ended 18.12.2024</p>
-                <p class="status">3 place</p>
-                <p class="rules">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
-                  porttitor.
-                  Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.
-                </p>
-                <button class="button">More</button>
-              </div>
+              <p class="name">Cat Hacks</p>
+              <p class="date">Hackathon ended 18.12.2024</p>
+              <p class="status">3 place</p>
+              <p class="rules">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac turpis sit amet sapien posuere
+                porttitor.
+                Quisque ultrices at magna ut pharetra. Morbi porttitor sodales dolor, id feugiat purus dignissim.
+              </p>
+              <button class="button">More</button>
             </div>
           </div>
-
         </div>
 
       </div>
