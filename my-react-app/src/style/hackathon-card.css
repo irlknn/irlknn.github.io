@@ -78,6 +78,7 @@
 .name {
   font-size: 18px;
   padding: 5px 0;
+  margin: 10px 0;
   z-index: 10;
 }
 
@@ -87,13 +88,20 @@
   font-size: 16px;
 }
 
+.rules, .theme{
+  margin: 5px 0;
+}
+
 .rules {
+  margin-bottom: 10px;
   font-size: 14px;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+
 
 .button {
   font-size: 15px;
