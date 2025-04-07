@@ -17,9 +17,9 @@ function PersonAccount() {
         // loading active tab
         const savedTab = localStorage.getItem("activeTab") || "Active";
         setActiveTab(savedTab);
-        
+
     }, []);
-    
+
     // saving active tab
     useEffect(() => {
         localStorage.setItem("activeTab", activeTab);
@@ -34,6 +34,29 @@ function PersonAccount() {
         localStorage.setItem("joinedHackathons", JSON.stringify(updatedHackathons));
         setJoinedHackathons(updatedHackathons);
     };
+
+    const displayBanner = (id) => {
+        const banner = document.getElementById('banner');
+        banner.innerHTML = `
+            <p>Are you sure?</p>
+            <button class="yes-button">Yes</button>
+            <button class="no-button">No</button>
+        `;
+
+        banner.style.display = 'block';
+
+        document.querySelector('.yes-button').addEventListener('click', () => {
+            banner.style.display = 'none';
+            removeHackathon(id);
+        });
+        document.querySelector('.no-button').addEventListener('click', () => {
+            banner.style.display = 'none';// removeHackathon(id)
+        });
+
+
+
+
+    }
 
     return (
         <>
@@ -84,6 +107,7 @@ function PersonAccount() {
                     style={{ display: activeTab === "In_process" ? "block" : "none" }}
                 >
                     <div className="content-wrapper">
+                        <div className="banner" id="banner"></div>
                         {joinedHackathons.length > 0 ? (
                             <div className="card-grid">
                                 {joinedHackathons.map((hackathon) => (
@@ -95,13 +119,15 @@ function PersonAccount() {
                                         <div className="card-content">
                                             <h2 className="name">{hackathon.name}</h2>
                                             <p className="rules">You are in line to be confirmed</p>
-                                            <button className="button" onClick={() => removeHackathon(hackathon.id)}>
+                                            {/* <button className="button" onClick={() => removeHackathon(hackathon.id)}> */}
+                                            <button className="button" onClick={() => displayBanner(hackathon.id)}>
                                                 Remove
                                             </button>
                                         </div>
                                     </div>
                                 ))}
                             </div>
+
                         ) : (
                             <div className="no-content">
                                 <img

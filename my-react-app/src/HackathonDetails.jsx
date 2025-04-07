@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Topbar from "./components/Topbar";
 import './style/hackathon.css';
 import './style/general.css';
-
+import displayBanner from './components/Banner';
 
 const cards = [{
     "id": 1,
@@ -145,21 +145,6 @@ function HackathonDetails() {
         </>
     );
 }
-
-function displayBanner(message) {
-    const banner = document.getElementById('banner');
-    banner.innerHTML = `
-        <p>${message}</p>
-        <button class='close-banner'>Close</button>
-    `;
-
-    banner.style.display = 'block';
-
-    banner.querySelector('.close-banner').addEventListener('click', () => {
-        banner.remove();
-    });
-}
-
 
 function change(hackathonId) {
     const button = document.getElementById('join-button');

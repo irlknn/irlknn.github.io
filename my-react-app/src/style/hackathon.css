@@ -149,9 +149,15 @@ main{
 }
 
 .banner button{
+    cursor: pointer;
     font-size: 16px;
     margin: 10px;
     padding: 10px 15px;
     border: 1px solid black;
     border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.banner button:hover{
+    background-color: #679897;
 }

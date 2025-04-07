@@ -78,6 +78,45 @@ body{
 .tabcontent {
   display: none;
   padding: 6px 12px;
+
+}
+
+.content-wrapper{
+  position: relative;
+  justify-content: center;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.banner{
+  display: none;
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.banner .yes-button:hover{
+  background-color: #c05e5e;
+}
+
+.banner .no-button:hover{
+  background-color: #5ec0a8;
+}
+
+.banner button {
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+  padding: 10px 15px;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: all 0.3s;
 }
 
 .no-content {
