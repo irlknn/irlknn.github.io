@@ -13,18 +13,18 @@ function Footer() {
 
                     <div className="footer-third">
                         <h1>USEFUL LINKS</h1>
-                        <a href="#">About</a>
-                        <a href="#">Services</a>
-                        <a href="#">Contact</a>
-                        <a href="#">Shop</a>
-                        <a href="#">Blog</a>
+                        <p>About</p>
+                        <p>Services</p>
+                        <p>Contact</p>
+                        <p>Shop</p>
+                        <p>Blog</p>
                     </div>
 
                     <div className="footer-third">
                         <h1>CONTACT</h1>
-                        <a href="#">INST: marta</a>
-                        <a href="#">FB: marta</a>
-                        <a href="https://github.com/irlknn" target="_blank">Github: irlknn</a>
+                        <p>INST: marta</p>
+                        <p>FB: marta</p>
+                        <p>Github: irlknn</p>
                         <p>© 2025 site</p>
                     </div>
                 </div>

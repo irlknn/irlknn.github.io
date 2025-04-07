@@ -1,14 +1,107 @@
 import './style/competition.css';
 import Topbar from './components/Topbar';
 import Card from './components/Card';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
+
+// import { Checkbox, Collapse } from 'antd';
+import CheckBox from './components/CheckBox';
+
+
+const hackathons = [{
+    "id": 1,
+    "name": "WcHacks",
+    "date": "May 13 2025 19:00:00",
+    "theme": "Artificial Intelligence",
+    "location": "University of Waterloo, Waterloo, ON",
+    "prize": "1000",
+    "description": "Hack the North is Canada's biggest hackathon, happening at the University of Waterloo. For 36 hours, 1000 students from around the world will come together to learn something new, create projects, and share them with the world. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rules": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+},
+{
+    "id": 2,
+    "name": "One Trillion Agents Hackaton",
+    "date": "April 20 2025 23:59:59",
+    "theme": "Gaming",
+    "location": "University of Toronto, Toronto, ON",
+    "prize": "10,000",
+    "description": "One Trillion Agents Hackaton is a hackathon that brings together 300 students from across North America to create innovative projects in 36 hours. Whether you're a beginner or a seasoned hacker, we welcome you to join us for a weekend of learning and fun.",
+    "rules": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+},
+{
+    "id": 3,
+    "name": "Predictive AI In Healthcare with FHIR®",
+    "date": "March 30 2025 23:59:59",
+    "theme": "Web Development",
+    "prize": "no prize",
+    "location": "Western University, London, ON",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rules": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+},
+{
+    "id": 4,
+    "name": "Azure AI Developer Hackathon",
+    "date": "May 28 2025 19:00:00",
+    "theme": "Artificial Intelligence",
+    "location": "Online",
+    "prize": "500",
+    "description": "Hack the North is Canada's biggest hackathon, happening at the University of Waterloo. For 36 hours, 1000 students from around the world will come together to learn something new, create projects, and share them with the world.",
+    "rules": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+},
+{
+    "id": 5,
+    "name": "Code fest",
+    "date": "April 25 2025 10:00:00",
+    "theme": "Databases",
+    "location": "Online",
+    "prize": "3500",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rules": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+},
+{
+    "id": 6,
+    "name": "Nova Hacks III",
+    "date": "May 19 2025 19:00:00",
+    "theme": "Blockchain",
+    "prize": "no prize",
+    "location": "University of Waterloo, Waterloo, ON",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rules": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+}];
+
+// const filters = [
+//     { "id": 1, "name": "Artificial Intelligence" },
+//     { "id": 2, "name": "Web Development" },
+//     { "id": 3, "name": "Blockchain" },
+//     { "id": 4, "name": "Databases" },
+//     { "id": 5, "name": "Gaming" },
+//     // {"id": , "name": ""},
+// ]
 
 function Competition() {
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [selectedFilters, setSelectedFilters] = useState([]); // State for selected filters
+    const [filteredHackathons, setFilteredHackathons] = useState(hackathons); // State for filtered hackathons
 
     const openNav = () => setIsSidebarOpen(true);
     const closeNav = () => setIsSidebarOpen(false);
+
+    const handleFilter = (filters) => {
+        setSelectedFilters(filters); // Update
+    };
+
+    const applyFilters = () => {
+        if (selectedFilters.length === 0) {
+            setFilteredHackathons(hackathons); // Show all hackathons
+        } 
+        else {
+            const filtered = hackathons.filter((hackathon) =>
+                selectedFilters.some((filter) => hackathon.theme.includes(filter))
+            );
+            setFilteredHackathons(filtered); // Update
+        }
+        closeNav();
+    };
 
     return (
         <>
@@ -16,7 +109,10 @@ function Competition() {
             <h1>Hackathons</h1>
 
             <div className="main-top">
-                <div className="filter" onClick={openNav}><img alt=" " src="https://static.thenounproject.com/png/4800805-200.png"></img>Filters</div>
+                <div className="filter" onClick={openNav}>
+                    <img alt=" " src="https://static.thenounproject.com/png/4800805-200.png" />
+                    Filters
+                </div>
                 <input type="text" placeholder="Search" className="search"></input>
                 <div className="dropdown">
                     <p className="sort-details">sort by &#8595;</p>
@@ -34,102 +130,20 @@ function Competition() {
                     <button className="closebtn" onClick={closeNav}>&times;</button>
                     <form>
                         <h2>Filter by categories</h2>
-                        <label>
-                            <input type="checkbox"></input>
-                            Artificial Intelligence
-                        </label>
-                        <label>
-                            <input type="checkbox"></input>
-                            Web Development
-                        </label>
-                        <label>
-                            <input type="checkbox"></input>
-                            Blockchain
-                        </label>
-                        <label>
-                            <input type="checkbox"></input>
-                            Databases
-                        </label>
-                        <label>
-                            <input type="checkbox"></input>
-                            Gaming
-                        </label>
+                        <CheckBox handleFilter={handleFilter} />
                     </form>
-                    <button class="searchbtn" onClick={closeNav}>Search</button>
+                    <button class="searchbtn" onClick={applyFilters}>Search</button>
                 </div>
 
-                <Card popular={false}></Card>
+                <div className="card-grid">
+                    {filteredHackathons.map((hackathon) => (
+                        <Card key={hackathon?.id} hackathon={hackathon} />
+                    ))}
+                </div>
+
             </main>
         </>
     );
 }
 
 export default Competition;
-// // import sidenav_competition from './sidenav_competition.css';
-// // import './style/hachathon-card.css';
-// import './style/competition.css';
-// import Topbar from './components/Topbar';
-// import Card from './components/Card';
-// import { useState } from 'react';
-
-// function Competition() {
-
-//     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-//     const openNav = () => setIsSidebarOpen(true);
-//     const closeNav = () => setIsSidebarOpen(false);
-
-//     return (
-//         <>
-//             <Topbar />
-//             <h1>Hackathons</h1>
-//             <div className="main-top">
-//                 <div className="filter" onClick={openNav}><img alt=" " src="https://static.thenounproject.com/png/4800805-200.png"></img>Filters</div>
-//                 <input type="text" placeholder="Search" className="search"></input>
-//                 <div className="dropdown">
-//                     <p className="sort-details">sort by &#8595;</p>
-//                     <div className="dropdown-content">
-//                         <a href="#">By 1</a>
-//                         <a href="#">By 2</a>
-//                         <a href="#">By 3</a>
-//                         <a href="#">By 4</a>
-//                     </div>
-//                 </div>
-//             </div>
-
-
-//             <div className={`sidenav ${isSidebarOpen ? 'open' : ''}`}>
-//                 <a className="closebtn" onClick={closeNav}>&times;</a>
-//                 <form>
-//                     <h2>Filter by categories</h2>
-//                     <label>
-//                         <input type="checkbox"></input>
-//                         Artificial Intelligence
-//                     </label>
-//                     <label>
-//                         <input type="checkbox"></input>
-//                         Web Development
-//                     </label>
-//                     <label>
-//                         <input type="checkbox"></input>
-//                         Blockchain
-//                     </label>
-//                     <label>
-//                         <input type="checkbox"></input>
-//                         Databases
-//                     </label>
-//                     <label>
-//                         <input type="checkbox"></input>
-//                         Gaming
-//                     </label>
-//                 </form>
-//                 <button class="searchbtn" onClick={closeNav}>Search</button>
-//             </div>
-
-//             <Card popular={false}></Card>
-//         </>
-//     );
-// }
-
-
-// export default Competition;

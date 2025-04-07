@@ -105,40 +105,61 @@ function HackathonDetails() {
     return (
         <>
             <Topbar />
-            <div className="preview">
-                <div className="left-side">
-                    <div className="image-container">
-                        <img className="hackathon-image" src={`/images/image${hackathon.id}.png`} alt=""></img>                    </div>
-                    <h1 className="title">{hackathon.name}</h1>
+            <main>
 
-                    <div className="countdown-box">
-                        <div className="countdown"><h3>{countdown.days}</h3><p>Days</p></div>
-                        <div className="countdown"><h3>{countdown.hours}</h3><p>Hours</p></div>
-                        <div className="countdown"><h3>{countdown.minutes}</h3><p>Minutes</p></div>
-                        <div className="countdown"><h3>{countdown.seconds}</h3><p>Seconds</p></div>
+                <div className="preview">
+                    <div className="left-side">
+                        <div className="image-container">
+                            <img className="hackathon-image" src={`/images/image${hackathon.id}.png`} alt=""></img>                    </div>
+                        <h1 className="title">{hackathon.name}</h1>
+
+                        <div className="countdown-box">
+                            <div className="countdown"><h3>{countdown.days}</h3><p>Days</p></div>
+                            <div className="countdown"><h3>{countdown.hours}</h3><p>Hours</p></div>
+                            <div className="countdown"><h3>{countdown.minutes}</h3><p>Minutes</p></div>
+                            <div className="countdown"><h3>{countdown.seconds}</h3><p>Seconds</p></div>
+                        </div>
+
+                        <button className="join-button" id="join-button" onClick={handleJoinClick}>Join hackathon</button>
                     </div>
 
-                    <button className="join-button" id="join-button" onClick={handleJoinClick}>Join hackathon</button>
+                    <div className="right-side">
+                        <p className="deadline">Deadline<br></br>{hackathon.date}</p>
+                        <hr></hr>
+                        <p className="location"><img alt="" src="https://www.svgrepo.com/show/77412/location-point.svg"></img>${hackathon.location}</p>
+                        <p className="prize">&#36; {hackathon.prize}</p>
+                        <hr></hr>
+                        <p className="theme">{hackathon.theme}</p>
+                    </div>
                 </div>
 
-                <div className="right-side">
-                    <p className="deadline">Deadline<br></br>{hackathon.date}</p>
+                <section className="second-section">
+                    <p className="description">{hackathon.description}</p>
                     <hr></hr>
-                    <p className="location"><img alt="" src="https://www.svgrepo.com/show/77412/location-point.svg"></img>${hackathon.location}</p>
-                    <p className="prize">&#36; {hackathon.prize}</p>
-                    <hr></hr>
-                    <p className="theme">{hackathon.theme}</p>
-                </div>
-            </div>
+                    <p className="rules">{hackathon.rules}</p>
+                </section>
+                
+                <div className='banner' id='banner'></div>
+            </main>
 
-            <section className="second-section">
-                <p className="description">{hackathon.description}</p>
-                <hr></hr>
-                <p className="rules">{hackathon.rules}</p>
-            </section>
         </>
     );
 }
+
+function displayBanner(message) {
+    const banner = document.getElementById('banner');
+    banner.innerHTML = `
+        <p>${message}</p>
+        <button class='close-banner'>Close</button>
+    `;
+
+    banner.style.display = 'block';
+
+    banner.querySelector('.close-banner').addEventListener('click', () => {
+        banner.remove();
+    });
+}
+
 
 function change(hackathonId) {
     const button = document.getElementById('join-button');
@@ -154,7 +175,8 @@ function change(hackathonId) {
     const hackathon = cards.find(h => h.id === hackathonId);
 
     if (!hackathon) {
-        alert('Hackathon not found!');
+        // alert('Hackathon not found!');
+        displayBanner('Hackathon not found </3');
         return;
     }
 
@@ -162,7 +184,7 @@ function change(hackathonId) {
 
     const alreadyJoined = joinedHackathons.some(h => h.id === hackathonId);
     if (alreadyJoined) {
-        alert('You have already joined this hackathon!');
+        displayBanner('You have already joined this hackathon!');
         return;
     }
 

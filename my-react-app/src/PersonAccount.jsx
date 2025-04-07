@@ -15,11 +15,11 @@ function PersonAccount() {
         setJoinedHackathons(storedHackathons);
 
         // loading active tab
-        const savedTab = localStorage.getItem("activeTab") || "active";
+        const savedTab = localStorage.getItem("activeTab") || "Active";
         setActiveTab(savedTab);
-
+        
     }, []);
-
+    
     // saving active tab
     useEffect(() => {
         localStorage.setItem("activeTab", activeTab);

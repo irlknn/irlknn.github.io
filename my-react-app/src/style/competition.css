@@ -169,12 +169,11 @@ body {
   z-index: 5;
   top: 0;
   left: 0;
-  background-color: rgba(17, 17, 17, 0.9);
+  background-color: rgb(17, 17, 17);
 
   overflow: hidden;
   transition: all 0.3s;
 }
-
 
 .sidenav.open {
   width: 250px;
@@ -184,19 +183,34 @@ form {
   margin-top: 60px;
 }
 
+.filters-theme{
+  color: #818181;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.filters-container{
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 form h2 {
   color: #818181;
-  margin: 15px 0;
+  margin: 10px 0;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .sidenav button,
 .sidenav a,
 .sidenav label {
   cursor: pointer;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   text-align: left;
   color: #818181;
-  display: block;
+  /* display: block; */
   transition: 0.3s;
 }
 
@@ -221,7 +235,7 @@ form h2 {
   border-radius: 5px;
   color: hsl(0, 0%, 40%);
   font-size: 14px;
-  background-color: hsl(0, 0%, 80%);
+  background-color: hsl(0, 0%, 100%);
   cursor: pointer;
   transition: 0.15s;
 }

@@ -18,24 +18,47 @@ function Home() {
                 </div>
             </section >
             <h2>Popular Hackathons</h2>
-            <Card popular={true}></Card>
+            <div className="card-grid">
+                {popularHackathons.map((hackathon) => (
+                    <Card key={hackathon?.id} hackathon={hackathon} />
+                ))}
+            </div>
             <h2>Leaderboard</h2>
             <Leaderboard />
         </>
     );
 }
 
-// createRoot(document.getElementById('root')).render(
-//     <StrictMode>
-//         <Topbar />
-//         <Home />
-//         <h2>Popular Hackathons</h2>
-//         <Card popular={true}></Card>
-//         <h2>Leaderboard</h2>
-//         <Leaderboard />
-//         <Footer />
-//     </StrictMode>
-// )
+const popularHackathons = [{
+    "id": 1,
+    "name": "WcHacks",
+    "date": "May 13 2025 19:00:00",
+    "theme": "Artificial Intelligence",
+    "location": "University of Waterloo, Waterloo, ON",
+    "prize": "1000",
+    "description": "Hack the North is Canada's biggest hackathon, happening at the University of Waterloo. For 36 hours, 1000 students from around the world will come together to learn something new, create projects, and share them with the world. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rules": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+},
+{
+    "id": 5,
+    "name": "Code fest",
+    "date": "April 25 2025 10:00:00",
+    "theme": "Databases",
+    "location": "Online",
+    "prize": "3500",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rules": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+},
+{
+    "id": 6,
+    "name": "Nova Hacks III",
+    "date": "May 19 2025 19:00:00",
+    "theme": "Blockchain",
+    "prize": "no prize",
+    "location": "University of Waterloo, Waterloo, ON",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rules": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+}];
 
 
 export default Home;
