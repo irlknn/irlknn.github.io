@@ -20,7 +20,7 @@
   list-style-type: none;
 }
 
-.list-item a, .home a{
+.list-item a, .home a, .list-item p{
   text-decoration: none;
   color: black;
   display: block;

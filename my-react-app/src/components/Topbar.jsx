@@ -1,41 +1,76 @@
 import { Link } from "react-router-dom";
+import React from "react";
+import { UserContext } from "../UserContext";
+import { useContext } from "react";
+
 
 function Topbar() {
-    return (
-        <>
-            <header>
-                <nav className="nav-menu">
-                    <div className="home">
-                        <Link to="/">
-                            <img alt="description" src="https://live.staticflickr.com/124/337160380_f5681cab06_w.jpg"></img>
-                                Home
-                        </Link>
-                    </div>
+  const { user } = useContext(UserContext);
 
-                    <ul className="nav-list">
-                        <li className="list-item">
-                            <Link to="/competition">
-                                Hackathons
-                            </Link>
-                        </li>
+  // function handleLogout() {
+  //   auth.signOut().then(() => { setUser(null); })
+  //     .catch((error) => {
+  //       console.error("Error signing out: ", error);
+  //     });
+  // }
 
-                        <li className="list-item">
-                            <Link to="/personAccount">
-                                My account
-                            </Link>
-                        </li>
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     // User is signed in
+  //     console.log("User ID:", user.uid);
+  //     console.log("Email:", user.email);
+  //     console.log("Display Name:", user.displayName);
+  //     console.log("Photo URL:", user.photoURL);
+  //   } else {
+  //     console.log("No user is currently signed in.");
+  //   }
+  // });
 
-                        <li className="list-item">
-                            <Link to="/rating">
-                                Rating
-                            </Link>
-                        </li>
+  return (
+    <>
+      <header>
+        <nav className="nav-menu">
+          <div className="home">
+            <Link to="/">
+              <img alt="description" src="https://live.staticflickr.com/124/337160380_f5681cab06_w.jpg"></img>
+              Home
+            </Link>
+          </div>
 
-                    </ul>
-                </nav>
-            </header>
-        </>
-    );
+          <ul className="nav-list">
+            <li className="list-item">
+              <Link to="/competition">
+                Hackathons
+              </Link>
+            </li>
+
+            {user ? (
+              <li className="list-item">
+                <Link to="/personAccount">
+                  My account
+                </Link>
+              </li>
+            ) : (
+              <li className="list-item">
+                <Link to="/LoginSignup">
+                  Sign up
+                </Link>
+              </li>
+            )}
+
+
+            <li className="list-item">
+              <Link to="/rating">
+                Rating
+              </Link>
+            </li>
+
+          </ul>
+        </nav>
+      </header>
+
+    </>
+  );
 
 }
 

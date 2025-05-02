@@ -1,33 +1,17 @@
 import React, { useState } from "react";
-// import "./style/rating.css"; // Import your CSS file for styling
-
-const leaderboardData = {
-  today: [
-    { name: "Charles John", points: 195 },
-    { name: "Alex Mike", points: 185 },
-    { name: "Johnson", points: 160 },
-    { name: "Rosey", points: 130 },
-    { name: "Scarlett Angela", points: 110 },
-  ],
-  month: [
-    { name: "Alex Mike", points: 1195 },
-    { name: "Johnson", points: 1185 },
-    { name: "Charles John", points: 1160 },
-    { name: "Scarlett Angela", points: 1130 },
-    { name: "Rosey", points: 1110 },
-  ],
-  year: [
-    { name: "Scarlett Angela", points: 2195 },
-    { name: "Rosey", points: 2185 },
-    { name: "Johnson", points: 2160 },
-    { name: "Charles John", points: 2130 },
-    { name: "Alex Mike", points: 2110 },
-  ],
-};
+import { useEffect } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../LoginSignup/Firebase";
 
 const Leaderboard = () => {
   const [activeTab, setActiveTab] = useState("month");
-
+  const [leaderboardData, setLeaderboardData] = useState({
+    today: [],
+    month: [],
+    year: []
+  });
+  const [loading, setLoading] = useState(true);
+  
   const getColor = (category) => {
     switch (category) {
       case "today":
@@ -43,6 +27,40 @@ const Leaderboard = () => {
 
   const activeColor = getColor(activeTab);
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        // Отримуємо дані для сьогоднішнього рейтингу
+        const todayDoc = await getDoc(doc(db, 'leaderboard', 'today'));
+        const todayData = todayDoc.exists() ? todayDoc.data().rankings : [];
+
+        // Отримуємо дані для рейтингу за місяць
+        const monthDoc = await getDoc(doc(db, 'leaderboard', 'month'));
+        const monthData = monthDoc.exists() ? monthDoc.data().rankings : [];
+
+        // Отримуємо дані для рейтингу за рік
+        const yearDoc = await getDoc(doc(db, 'leaderboard', 'year'));
+        const yearData = yearDoc.exists() ? yearDoc.data().rankings : [];
+
+        // Оновлюємо стан
+        setLeaderboardData({
+          today: todayData,
+          month: monthData,
+          year: yearData,
+        });
+      } catch (error) {
+        console.error('Error fetching leaderboard data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []); 
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="wrapper">
 

@@ -1,8 +1,7 @@
-// filepath: d:\GitHub\irlknn.github.io\my-react-app\src\PersonAccount.jsx
 import React, { useState, useEffect } from "react";
-import AccountTopbar from "./components/AcountTopbar";
-import "./style/account_topbar.css";
-import "./style/account.css";
+import AccountTopbar from "../components/AcountTopbar";
+import "../style/account_topbar.css";
+import "../style/account.css";
 import { Link } from "react-router-dom";
 
 function PersonAccount() {
@@ -25,6 +24,7 @@ function PersonAccount() {
         localStorage.setItem("activeTab", activeTab);
     }, [activeTab]);
 
+    // CHANGE
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
     };
@@ -53,10 +53,9 @@ function PersonAccount() {
             banner.style.display = 'none';// removeHackathon(id)
         });
 
-
-
-
     }
+
+    // додати витягування з БД інформацію про користувача
 
     return (
         <>

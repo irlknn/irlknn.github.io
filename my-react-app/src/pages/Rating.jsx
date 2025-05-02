@@ -1,5 +1,5 @@
-import Leaderboard from "./components/Leaderboard";
-import Topbar from "./components/Topbar";
+import Leaderboard from "../components/Leaderboard";
+import Topbar from "../components/Topbar";
 
 function Rating() {
     return (

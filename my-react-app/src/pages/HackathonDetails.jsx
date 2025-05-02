@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Topbar from "./components/Topbar";
-import './style/hackathon.css';
-import './style/general.css';
-import displayBanner from './components/Banner';
+import Topbar from "../components/Topbar";
+import '../style/hackathon.css';
+import '../style/general.css';
+import displayBanner from '../components/Banner';
 
 const cards = [{
     "id": 1,
@@ -160,7 +160,6 @@ function change(hackathonId) {
     const hackathon = cards.find(h => h.id === hackathonId);
 
     if (!hackathon) {
-        // alert('Hackathon not found!');
         displayBanner('Hackathon not found </3');
         return;
     }

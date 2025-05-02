@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+// import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../LoginSignup/Firebase";
+import { UserContext } from "../UserContext";
 
 function AccountTopbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,6 +10,15 @@ function AccountTopbar() {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     }
+
+    const { setUser } = useContext(UserContext);
+    function handleLogout() {
+        auth.signOut().then(() => { setUser(null); })
+            .catch((error) => {
+                console.error("Error signing out: ", error);
+            });
+    }
+
 
     return (
         <>
@@ -19,10 +31,10 @@ function AccountTopbar() {
                 </div>
 
                 <div className="icons">
-                    <button class="plus-button">
+                    {/* <button class="plus-button">
                         <img alt="" src="images/plus.png"></img>
                         <div className="tooltip">create an application</div>
-                    </button>
+                    </button> */}
 
                     <img alt="" src="https://www.svgrepo.com/show/456992/account.svg"></img>
 
@@ -50,9 +62,11 @@ function AccountTopbar() {
                                 <span>&gt;</span>
                             </Link>
 
-                            <Link className="sub-menu-link">
-                                <p>Log out</p>
-                                <span>&gt;</span>
+                            <Link to="/" onClick={handleLogout}>
+                                <p className="sub-menu-link" >
+                                    <p>Log out</p>
+                                    <span>&gt;</span>
+                                </p>
                             </Link>
 
                         </div>
