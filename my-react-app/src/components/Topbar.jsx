@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { UserContext } from "../UserContext";
 import { useContext } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 function Topbar() {
   const { user } = useContext(UserContext);
@@ -25,6 +25,14 @@ function Topbar() {
   //     console.log("No user is currently signed in.");
   //   }
   // });
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    if (user) {
+      navigate(`/user/${user.uid}`);
+    } else {
+      navigate("/LoginSignup");
+    }
+  };
 
   return (
     <>
@@ -45,10 +53,11 @@ function Topbar() {
             </li>
 
             {user ? (
+
               <li className="list-item">
-                <Link to="/personAccount">
+                <p onClick={handleNavigate}>
                   My account
-                </Link>
+                </p>
               </li>
             ) : (
               <li className="list-item">

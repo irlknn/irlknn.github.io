@@ -4,7 +4,19 @@ import "../style/account_topbar.css";
 import "../style/account.css";
 import { Link } from "react-router-dom";
 
+import { useParams, Navigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+
 function PersonAccount() {
+    // const { uid } = useParams();
+    // const user = getAuth().currentUser;
+  
+    // if (!user) return <Navigate to="/login" />;
+  
+    // if (user.uid !== uid) return <Navigate to="/unauthorized" />;
+  
+    // return <div>Error it's private page</div>;
+
     const [activeTab, setActiveTab] = useState("active");
     const [joinedHackathons, setJoinedHackathons] = useState([]);
 
@@ -24,7 +36,6 @@ function PersonAccount() {
         localStorage.setItem("activeTab", activeTab);
     }, [activeTab]);
 
-    // CHANGE
     const handleTabClick = (tabName) => {
         setActiveTab(tabName);
     };
@@ -56,7 +67,13 @@ function PersonAccount() {
     }
 
     // додати витягування з БД інформацію про користувача
-
+    const { uid } = useParams();
+    const currentUser = getAuth().currentUser;
+  
+    if (!currentUser) return <Navigate to="/login" replace />;
+  
+    if (currentUser.uid !== uid) return <Navigate to="/unauthorized" replace />;
+  
     return (
         <>
             <AccountTopbar />
@@ -64,7 +81,7 @@ function PersonAccount() {
             <div className="account-bg">
                 <div className="inner-info">
                     <img alt="" src="/images/account-pic.png" className="account-pic" />
-                    <p className="account-nic">irlknn</p>
+                    <p className="account-nick">irlknn</p>
                 </div>
             </div>
 

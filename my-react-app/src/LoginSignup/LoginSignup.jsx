@@ -1,6 +1,8 @@
 import React from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from './Firebase';
+import { getAuth } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 import { addUserToDatabase } from '../databaseService';
 // import { Icon }
 // import { Link } from 'react-router-dom';
@@ -53,7 +55,9 @@ function LoginSignup() {
             await addUserToDatabase(user, role);
 
             setbannerMessage('Welcome, ' + user.displayName + '! You have successfully signed up.');
-            // <Link to="/personAccount"><span>Click to go to your account</span></Link>);
+            
+            const uid = userCredential.user.uid;
+            navigate(`/user/${uid}`);
         } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
                 setbannerMessage('Email already in use. Please use a different email.');
@@ -62,15 +66,18 @@ function LoginSignup() {
             console.log("Error: " + error.message);
         }
     }
+    const navigate = useNavigate();
 
     async function login() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         try {
+            const auth = getAuth();
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
-
             setbannerMessage('Welcome back, ' + userCredential.user.displayName + '! You have successfully logged in.');
-
+            
+            const uid = userCredential.user.uid;
+            navigate(`/user/${uid}`);
         } catch (error) {
             if (error.code === 'auth/wrong-password') {
                 setbannerMessage('Wrong password. Please try again.');

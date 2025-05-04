@@ -169,7 +169,7 @@ body {
   z-index: 5;
   top: 0;
   left: 0;
-  background-color: rgb(17, 17, 17);
+  background-color: rgb(233, 233, 233);
 
   overflow: hidden;
   transition: all 0.3s;
@@ -183,13 +183,13 @@ form {
   margin-top: 60px;
 }
 
-.filters-theme{
-  color: #818181;
+.filters-theme {
+  color: #404040;
   font-size: 18px;
   margin-left: 5px;
 }
 
-.filters-container{
+.filters-container {
   padding-left: 10px;
   display: flex;
   flex-direction: column;
@@ -197,7 +197,7 @@ form {
 }
 
 form h2 {
-  color: #818181;
+  color: #404040;
   margin: 10px 0;
   text-align: left;
   padding-left: 10px;
@@ -209,7 +209,7 @@ form h2 {
   cursor: pointer;
   /* padding: 10px 20px; */
   text-align: left;
-  color: #818181;
+  color: #404040;
   /* display: block; */
   transition: 0.3s;
 }
@@ -223,17 +223,24 @@ form h2 {
 .sidenav .closebtn {
   background-color: none;
   position: absolute;
-  top: 0;
+  border: none;
+  background-color: transparent;
+  top: 25px;
   right: 25px;
-  font-size: 25px;
+  scale: 2.5;
+  transition: all 0.3s;
 }
+
+.sidenav .closebtn:hover{
+  color: black;
+ }
 
 .sidenav .searchbtn {
   margin-top: 20px;
   padding: 10px 16px;
   border: none;
   border-radius: 5px;
-  color: hsl(0, 0%, 40%);
+  color: #404040;
   font-size: 14px;
   background-color: hsl(0, 0%, 100%);
   cursor: pointer;
@@ -242,7 +249,8 @@ form h2 {
 
 .sidenav .searchbtn:hover,
 .sidenav .searchbtn:active {
-  color: hsl(0, 0%, 20%);
+  color: hsl(0, 0%, 0%);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-height: 576px) {
