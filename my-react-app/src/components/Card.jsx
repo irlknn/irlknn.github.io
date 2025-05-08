@@ -30,7 +30,7 @@ function Card({ hackathon }) {
                 <p className="theme">{hackathon.theme}</p>
                 <p className="date">{formatDate(hackathon.date)}</p>
                 <p className="rules">{hackathon.rules}</p>
-                <Link to={`/hackathon/${hackathon.Hackathon_ID}`}>
+                <Link to={`/hackathon/${hackathon.id}`}>
                     <button className="button">View more</button>
                 </Link>
             </div>

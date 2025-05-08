@@ -49,7 +49,7 @@ function Competition() {
         }
 
         fetchData();
-    }, []);
+    }, [hackathons]);
 
     useEffect(() => {
         setFilteredHackathons(hackathons); 
@@ -93,7 +93,7 @@ function Competition() {
 
                 <div className="card-grid">
                     {filteredHackathons.map((hackathon) => (
-                        <Card key={hackathon?.Hackathon_ID} hackathon={hackathon} />
+                        <Card key={hackathon?.id} hackathon={hackathon} />
                     ))}
                 </div>
 

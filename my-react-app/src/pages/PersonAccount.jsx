@@ -8,14 +8,6 @@ import { useParams, Navigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 
 function PersonAccount() {
-    // const { uid } = useParams();
-    // const user = getAuth().currentUser;
-  
-    // if (!user) return <Navigate to="/login" />;
-  
-    // if (user.uid !== uid) return <Navigate to="/unauthorized" />;
-  
-    // return <div>Error it's private page</div>;
 
     const [activeTab, setActiveTab] = useState("active");
     const [joinedHackathons, setJoinedHackathons] = useState([]);
@@ -31,14 +23,11 @@ function PersonAccount() {
 
     }, []);
 
-    // saving active tab
     useEffect(() => {
         localStorage.setItem("activeTab", activeTab);
     }, [activeTab]);
 
-    const handleTabClick = (tabName) => {
-        setActiveTab(tabName);
-    };
+    const handleTabClick = (tabName) => setActiveTab(tabName);
 
     const removeHackathon = (id) => {
         const updatedHackathons = joinedHackathons.filter(hackathon => hackathon.id !== id);
@@ -69,11 +58,11 @@ function PersonAccount() {
     // додати витягування з БД інформацію про користувача
     const { uid } = useParams();
     const currentUser = getAuth().currentUser;
-  
+
     if (!currentUser) return <Navigate to="/login" replace />;
-  
+
     if (currentUser.uid !== uid) return <Navigate to="/unauthorized" replace />;
-  
+
     return (
         <>
             <AccountTopbar />
@@ -130,7 +119,11 @@ function PersonAccount() {
                                     <div className="card" key={hackathon.id}>
                                         <div className="image-content">
                                             <span className="overlay"></span>
-                                            <img src={`images/image${hackathon.id}.png`} className="card-img" alt={`Hackathon ${hackathon.id}`} />
+                                            <img
+                                                src={`/images/image${hackathon.Hackathon_ID}.png`}
+                                                className="card-img"
+                                                alt={`Hackathon ${hackathon.Hackathon_ID}`}
+                                            />
                                         </div>
                                         <div className="card-content">
                                             <h2 className="name">{hackathon.name}</h2>

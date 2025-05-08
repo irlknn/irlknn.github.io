@@ -1,4 +1,4 @@
-import { collection, getDocs, setDoc, doc } from "firebase/firestore";
+import { collection, getDocs, setDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "./LoginSignup/Firebase";
 
 export async function getHackathons() {
@@ -8,6 +8,16 @@ export async function getHackathons() {
     return hackathonsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
+export const getHackathonById = async (id) => {
+    const docRef = doc(db, 'hackathons', id);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+        throw new Error('Hackathon not found');
+    }
+
+    return { ...docSnap.data(), firebaseId: docSnap.id };
+};
 export async function addUserToDatabase(user, role) {
     try {
         await setDoc(doc(db, "users", user.uid), {
@@ -41,7 +51,7 @@ export async function getLeaderboard() {
         };
     } catch (error) {
         console.error('Error fetching leaderboard data:', error);
-        return { today: [], month: [], year: [] }; 
+        return { today: [], month: [], year: [] };
     }
 }
 
