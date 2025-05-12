@@ -7,21 +7,52 @@ import { Link } from "react-router-dom";
 import { useParams, Navigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 
+// import api from './api';
+
 function PersonAccount() {
+
+    // додати витягування з БД інформацію про користувача
+    const { uid } = useParams();
+    const currentUser = getAuth().currentUser;
+
+    // console.log('uid: ', uid);
+    // console.log('currentUser.id: ', currentUser.id);
+    // console.log('currentUser: ', currentUser);
 
     const [activeTab, setActiveTab] = useState("active");
     const [joinedHackathons, setJoinedHackathons] = useState([]);
 
     useEffect(() => {
         // loading joined hackathons
-        const storedHackathons = JSON.parse(localStorage.getItem("joinedHackathons")) || [];
-        setJoinedHackathons(storedHackathons);
+        // const storedHackathons = JSON.parse(localStorage.getItem("joinedHackathons")) || [];
+        // setJoinedHackathons(storedHackathons);
+
+        const fetchApplications = async () => {
+            try {
+                const res = await fetch(`http://localhost:5000/user/${uid}`);
+                const data = await res.json();
+                console.log('data: ', data);
+                setJoinedHackathons(data.map(hackathon => ({
+                    id: hackathon.id,
+                    Hackathon_ID: hackathon.hackathon.Hackathon_ID,
+                    name: hackathon.hackathon.name,
+                    // status: hackathon.status,
+                    // createdAt: hackathon.createdAt
+                })));
+                console.log('hackathons: ', joinedHackathons);
+            } catch (error) {
+                console.error('Error in application loading: ', error);
+                alert('Error in application loading');
+            }
+        };
+
+        fetchApplications();
 
         // loading active tab
         const savedTab = localStorage.getItem("activeTab") || "Active";
         setActiveTab(savedTab);
 
-    }, []);
+    }, [uid]);
 
     useEffect(() => {
         localStorage.setItem("activeTab", activeTab);
@@ -55,9 +86,6 @@ function PersonAccount() {
 
     }
 
-    // додати витягування з БД інформацію про користувача
-    const { uid } = useParams();
-    const currentUser = getAuth().currentUser;
 
     if (!currentUser) return <Navigate to="/login" replace />;
 

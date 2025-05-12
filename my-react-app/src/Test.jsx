@@ -7,6 +7,12 @@
 // import Input from '@mui/material/Input';
 // import './LoginSignup/loginSignup.css'
 
+function Test(){
+    return <h1>Test</h1>; 
+}
+
+export default Test;
+
 // const Test = () => {
 //     const [password, setPassword] = React.useState('');
 //     const [showPassword, setShowPassword] = React.useState(false);

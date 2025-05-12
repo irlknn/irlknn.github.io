@@ -7,6 +7,7 @@ import displayBanner from '../components/NotificationBanner';
 import { getHackathonById } from '../databaseService';
 import { UserContext } from "../UserContext";
 import { useContext } from "react";
+import { registerToHackathon } from '../databaseService'; // Додай імпорт нагорі
 
 function HackathonDetails() {
     const { user } = useContext(UserContext);
@@ -15,13 +16,15 @@ function HackathonDetails() {
     const [hackathon, setHackathon] = useState(null);
     const [countdown, setCountdown] = useState({ days: '00', hours: '00', minutes: '00', seconds: '00' });
 
-    const hackathonDate = new Date(hackathon.date.seconds * 1000);
-    const formattedDate = hackathonDate.toLocaleDateString();
-
     useEffect(() => {
         async function fetchData() {
             try {
                 const data = await getHackathonById(id);
+                if (!data) {
+                    alert('Змагання не знайдено');
+                    return;
+                }
+                console.log("Hackathon data:", data);
                 setHackathon(data);
                 startCountdown(data.date, setCountdown);
             } catch (error) {
@@ -31,9 +34,15 @@ function HackathonDetails() {
         fetchData();
     }, [id]);
 
+    // console.log('user data: ', user);
+
+    // console.log('HACKATHON: ', hackathon);
     const handleJoinClick = () => change(hackathon, user);
 
     if (!hackathon) return <h2>Loading...</h2>;
+
+    const hackathonDate = new Date(hackathon.date.seconds * 1000);
+    const formattedDate = hackathonDate.toLocaleDateString();
 
     return (
         <>
@@ -81,19 +90,19 @@ function HackathonDetails() {
 
 function change(hackathon, user) {
     const button = document.getElementById('join-button');
-    let joinedHackathons = JSON.parse(localStorage.getItem('joinedHackathons')) || [];
-    const alreadyJoined = joinedHackathons.some(h => h.id === hackathon.id);
+    // let joinedHackathons = JSON.parse(localStorage.getItem('joinedHackathons')) || [];
+    // const alreadyJoined = joinedHackathons.some(h => h.id === hackathon.id);
 
     if (!user) {
         displayBanner('Please, log in to join the hackathon!');
         button.innerHTML = 'Please, log in';
         button.disabled = true;
         return;
-    } else if (alreadyJoined) {
-        displayBanner('You have already joined this hackathon!');
-        button.innerHTML = 'You are already in line';
-        button.disabled = true;
-        return;
+        // } else if (alreadyJoined) {
+        //     displayBanner('You have already joined this hackathon!');
+        //     button.innerHTML = 'You are already in line';
+        //     button.disabled = true;
+        //     return;
     } else {
         button.innerHTML = 'Please, wait';
         button.style.background = "rgb(103, 152, 151)";
@@ -103,8 +112,19 @@ function change(hackathon, user) {
             button.disabled = true;
             button.style.cursor = "default";
         }, 780);
-        joinedHackathons.push(hackathon);
-        localStorage.setItem('joinedHackathons', JSON.stringify(joinedHackathons));
+        registerToHackathon(user.uid, hackathon.firebaseId)
+            .then(() => {
+                displayBanner('Application submitted successfully!');
+                button.innerHTML = 'Look in profile';
+                button.style.background = "rgb(103, 135, 152)";
+                button.style.cursor = "default";
+            })
+            .catch((error) => {
+                displayBanner('Error submitting application: ' + error.message);
+                button.innerHTML = 'Try again';
+                button.disabled = false;
+                button.style.background = "rgb(152, 103, 103)";
+            });
     }
 }
 

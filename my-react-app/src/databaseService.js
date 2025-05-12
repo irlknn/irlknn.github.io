@@ -55,3 +55,27 @@ export async function getLeaderboard() {
     }
 }
 
+export async function registerToHackathon(userId, hackathonId) {
+    const createdAt = new Date().toISOString();
+
+    try {
+        const response = await fetch('/api/applications', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId, hackathonId, createdAt }),
+        });
+
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Registration failed: ${errorText}`);
+        }
+
+        const data = await response.json();
+        console.log('User registered, doc ID:', data.id);
+        return data.id;
+    } catch (error) {
+        console.error('Error registering to hackathon:', error);
+        throw error;
+    }
+}
