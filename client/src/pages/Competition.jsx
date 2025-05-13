@@ -3,8 +3,9 @@ import Topbar from '../components/Topbar';
 import Card from '../components/Card';
 import { useState, useEffect } from 'react';
 import { getHackathons } from '../databaseService';
-
+import Loading from '../components/Loading';
 import CheckBox from '../components/CheckBox';
+import Footer from '../components/Footer';
 
 function Competition() {
 
@@ -57,7 +58,7 @@ function Competition() {
 
     console.log("Filtered Hackathons: ", filteredHackathons);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />;
 
     return (
         <>
@@ -98,6 +99,7 @@ function Competition() {
                 </div>
 
             </main>
+            <Footer />
         </>
     );
 }

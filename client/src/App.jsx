@@ -7,7 +7,6 @@ import PrivateRoute from "./LoginSignup/PrivateRoute";
 
 import Unauthorized from "./LoginSignup/Unauthorized";
 import Rating from "./pages/Rating";
-import Footer from "./components/Footer";
 import HackathonDetails from "./pages/HackathonDetails";
 import LoginSignup from "./LoginSignup/LoginSignup";
 import Test from "./Test";
@@ -34,7 +33,6 @@ function App() {
           <Route path="/unauthorized" element={<Unauthorized />} />
         </Routes>
       </UserProvider>
-      <Footer />
     </BrowserRouter>
   );
 }

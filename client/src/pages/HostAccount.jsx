@@ -1,5 +1,7 @@
 import AccountTopbar from "../components/AcountTopbar";
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
+
 function HostAccount() {
     const [activeTab, setActiveTab] = useState("Active");
     // saving active tab
@@ -82,7 +84,7 @@ function HostAccount() {
 
                 </div>
             </section >
-
+            <Footer></Footer>
 
         </>
     );

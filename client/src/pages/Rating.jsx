@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Leaderboard from "../components/Leaderboard";
 import Topbar from "../components/Topbar";
 
@@ -13,6 +14,7 @@ function Rating() {
                 </div>
             </section>
             <Leaderboard />
+            <Footer />
         </>
     );
 }

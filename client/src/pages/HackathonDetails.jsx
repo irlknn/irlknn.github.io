@@ -8,6 +8,8 @@ import { getHackathonById } from '../databaseService';
 import { UserContext } from "../UserContext";
 import { useContext } from "react";
 import { registerToHackathon } from '../databaseService'; // Додай імпорт нагорі
+import Loading from '../components/Loading';
+import Footer from '../components/Footer';
 
 function HackathonDetails() {
     const { user } = useContext(UserContext);
@@ -39,7 +41,7 @@ function HackathonDetails() {
     // console.log('HACKATHON: ', hackathon);
     const handleJoinClick = () => change(hackathon, user);
 
-    if (!hackathon) return <h2>Loading...</h2>;
+    if (!hackathon) return <Loading />;
 
     const hackathonDate = new Date(hackathon.date.seconds * 1000);
     const formattedDate = hackathonDate.toLocaleDateString();
@@ -83,26 +85,19 @@ function HackathonDetails() {
 
                 <div className='banner' id='banner'></div>
             </main>
-
+            <Footer />
         </>
     );
 }
 
 function change(hackathon, user) {
     const button = document.getElementById('join-button');
-    // let joinedHackathons = JSON.parse(localStorage.getItem('joinedHackathons')) || [];
-    // const alreadyJoined = joinedHackathons.some(h => h.id === hackathon.id);
 
     if (!user) {
         displayBanner('Please, log in to join the hackathon!');
         button.innerHTML = 'Please, log in';
         button.disabled = true;
         return;
-        // } else if (alreadyJoined) {
-        //     displayBanner('You have already joined this hackathon!');
-        //     button.innerHTML = 'You are already in line';
-        //     button.disabled = true;
-        //     return;
     } else {
         button.innerHTML = 'Please, wait';
         button.style.background = "rgb(103, 152, 151)";

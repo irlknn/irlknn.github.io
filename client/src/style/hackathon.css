@@ -1,10 +1,11 @@
-*, h1 {
+*,
+h1 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-main{
+main {
     position: relative;
     align-items: center;
 }
@@ -128,25 +129,29 @@ main{
 
 }
 
-.banner{
+.banner {
     display: none;
-    position: absolute;
-    top: 20px;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
 
     background-color: white;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
-    padding: 10px;
+    padding: 20px;
     border: none;
     border-radius: 10px;
+    text-align: center;
     transition: all 0.3s;
 }
 
-.banner p{
+.banner p {
     font-size: 16px;
     padding: 10px;
 }
 
-.banner button{
+.banner button {
     cursor: pointer;
     font-size: 16px;
     margin: 10px;
@@ -156,6 +161,6 @@ main{
     transition: all 0.3s;
 }
 
-.banner button:hover{
+.banner button:hover {
     background-color: #679897;
 }

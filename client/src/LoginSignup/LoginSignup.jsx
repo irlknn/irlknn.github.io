@@ -4,13 +4,12 @@ import { auth } from './Firebase';
 import { getAuth } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { addUserToDatabase } from '../databaseService';
-// import { Icon }
-// import { Link } from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 import './loginSignup.css'
 import Topbar from '../components/Topbar';
+import Footer from '../components/Footer';
 
 function LoginSignup() {
     const [action, setAction] = React.useState("Sign Up");
@@ -55,7 +54,7 @@ function LoginSignup() {
             await addUserToDatabase(user, role);
 
             setbannerMessage('Welcome, ' + user.displayName + '! You have successfully signed up.');
-            
+
             const uid = userCredential.user.uid;
             navigate(`/user/${uid}`);
         } catch (error) {
@@ -75,7 +74,7 @@ function LoginSignup() {
             const auth = getAuth();
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             setbannerMessage('Welcome back, ' + userCredential.user.displayName + '! You have successfully logged in.');
-            
+
             const uid = userCredential.user.uid;
             navigate(`/user/${uid}`);
         } catch (error) {
@@ -103,12 +102,12 @@ function LoginSignup() {
                 ) : (
                     <>
                         <div className='header'>
-                            <div className="submit-container">
+                            <div className="submit-button-container">
                                 <div className={action === "Login" ? "submit gray" : "submit"} onClick={() => { setAction("Sign Up") }}>Sign Up</div>
                                 <div className={action === "Sign Up" ? "submit gray" : "submit"} onClick={() => { setAction("Login") }}>Login</div>
                             </div >
 
-                            <div className='underline' style={{ left: action === 'Login' ? '400px' : '140px' }}></div>
+                            <div className='underline' style={{ left: action === 'Login' ? '70%' : '20%' }}></div>
                         </div >
 
                         <div className="inputs">
@@ -138,10 +137,7 @@ function LoginSignup() {
                                             </select>
                                         </form>
                                     </div>
-                                    {/* <div className="input">
-                                        <img src="/images/loginSignup/role.svg" alt="role" className='role-icon'/>
-                                        <input type='text' placeholder='Role' id='role' />
-                                    </div> */}
+
                                 </>
                             }
 
@@ -167,8 +163,6 @@ function LoginSignup() {
                                     {showPassword ? <Visibility /> : <VisibilityOff />}
                                 </button>
 
-
-                                {/* <span className='' onClick={handleSetIcon}><Icon icon={icon} size={25}/></span> */}
                             </div>
                         </div>
                         {action === "Sign Up" ? <div></div> : <div className="forgot-password">Lost Password?<span>Click Here!</span></div>}
@@ -178,6 +172,7 @@ function LoginSignup() {
                                 onClick={action === "Login" ? login : signUp}>
                                 Submit</button>
                         </div>
+                        <Footer />
                     </ >
                 )}
             </div >

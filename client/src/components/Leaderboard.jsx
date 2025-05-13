@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../LoginSignup/Firebase";
+import Loading from "./Loading";
 
 const Leaderboard = () => {
   const [activeTab, setActiveTab] = useState("month");
@@ -59,7 +60,7 @@ const Leaderboard = () => {
   }, []); 
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   return (
     <div className="wrapper">

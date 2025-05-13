@@ -27,7 +27,7 @@
     font-weight: 700;
 }
 
-.underline{
+.underline {
     position: absolute;
     bottom: 0;
 
@@ -62,7 +62,7 @@
     border-radius: 6px;
 }
 
-.input img{
+.input img {
     margin: 0px 30px;
 }
 
@@ -78,12 +78,13 @@
 }
 
 /* прописати */
-.input form{
+.input form {
     /* border: none; */
     margin: 40px 0;
     /* width: 100%; */
 }
-.role-select{
+
+.role-select {
     background-color: #eaeaea;
     border: none;
     /* border-radius: 8px; */
@@ -95,14 +96,16 @@
     appearance: none;
     font-size: 18px;
 }
-.eye-icon{
+
+.eye-icon {
+    align-self: center;
     cursor: pointer;
     border: none;
     background-color: transparent;
     margin: 0 30px;
 }
 
-.role-icon{
+.role-icon {
     width: 25px;
 }
 
@@ -119,7 +122,8 @@
     cursor: pointer;
 }
 
-.submit-container {
+.submit-container,
+.submit-button-container {
     display: flex;
     gap: 30px;
     margin: 20px auto;
@@ -164,15 +168,66 @@
     font-weight: bold;
 }
 
-.banner-container{
+.banner-container {
     height: 500px;
     position: relative;
 }
 
-.close-button{
+.close-button {
     cursor: pointer;
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 24px;
 }
+
+@media (max-width: 576px) {
+    .input {
+        width: 80%;
+        height: 60px;
+    }
+
+    .input input {
+        width: 80%;
+        font-size: 16px;
+    }
+
+    .input img {
+        width: 15px;
+        margin: 0 20px;
+    }
+
+    .role-select {
+        width: max(100px, 200%);
+        font-size: 16px;
+    }
+
+    .submit-button-container {
+        width: 90%;
+        margin: 10px;
+    }
+
+    .submit-button{
+        font-size: 18px;
+        height: 50px;
+        width: 150px;
+    }
+
+    .submit {
+        font-size: 18px;
+        height: 50px;
+    }
+
+
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .container {
+        width: 70%;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {}
+
+@media (min-width: 1025px) {}
