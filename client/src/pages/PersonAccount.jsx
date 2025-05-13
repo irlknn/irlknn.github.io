@@ -23,17 +23,25 @@ function PersonAccount() {
     useEffect(() => {
 
         const fetchApplications = async () => {
+
             try {
                 const res = await fetch(`${process.env.REACT_APP_API_URL}/user/${uid}`);
                 const data = await res.json();
                 console.log('data: ', data);
-                setJoinedHackathons(data.map(hackathon => {
+
+                // забрати це в подальшому
+                const uniqueHackathons = Array.from(new Map(data.map(h => [h.Hackathon_ID, h])).values());
+
+                setJoinedHackathons(uniqueHackathons.map(hackathon => {
                     let formattedDate = "Invalid Date";
                     try {
-                        const date = parseISO(hackathon.createdAt); // Parse ISO string
-                        formattedDate = format(date, 'dd.MM.yyyy'); // Format as DD.MM.YYYY
+                        const timestamp = hackathon.createdAt;
+                        if (timestamp && typeof timestamp._seconds === 'number') {
+                            const date = new Date(timestamp._seconds * 1000);
+                            formattedDate = format(date, 'dd.MM.yyyy');
+                        }
                     } catch (error) {
-                        console.error('Error parsing date:', error);
+                        console.error('Invalid date format:', hackathon.createdAt);
                     }
 
                     return {
@@ -43,7 +51,6 @@ function PersonAccount() {
                         createdAt: formattedDate
                     };
                 }));
-                console.log('hackathons: ', joinedHackathons);
             } catch (error) {
                 console.error('Error in application loading: ', error);
                 // alert('Error in application loading');
@@ -59,6 +66,7 @@ function PersonAccount() {
     }, [uid]);
 
     useEffect(() => {
+
         localStorage.setItem("activeTab", activeTab);
     }, [activeTab]);
 

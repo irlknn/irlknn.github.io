@@ -172,10 +172,10 @@ function LoginSignup() {
                                 onClick={action === "Login" ? login : signUp}>
                                 Submit</button>
                         </div>
-                        <Footer />
                     </ >
                 )}
             </div >
+            <Footer />
         </>
 
     )

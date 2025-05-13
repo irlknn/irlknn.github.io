@@ -50,7 +50,7 @@ function Competition() {
         }
 
         fetchData();
-    }, [hackathons]);
+    }, []);
 
     useEffect(() => {
         setFilteredHackathons(hackathons); 

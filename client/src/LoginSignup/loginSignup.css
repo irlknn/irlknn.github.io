@@ -111,7 +111,6 @@
 
 
 .forgot-password {
-    padding-left: 62px;
     margin-top: 27px;
     color: #797979;
     font-size: 18px;
@@ -198,7 +197,7 @@
     }
 
     .role-select {
-        width: max(100px, 200%);
+        width: max(90px, 190%);
         font-size: 16px;
     }
 
