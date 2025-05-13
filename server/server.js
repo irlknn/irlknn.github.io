@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // Статичні файли з React
-// app.use(express.static(path.join(__dirname, '..', 'my-react-app', 'build')));
+app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 
 // Обробка POST-запиту для заявки
 app.post('/api/applications', async (req, res) => {
@@ -96,102 +96,6 @@ app.listen(PORT, () => {
 
 // Обробка всіх інших запитів — повертаємо index.html для SPA
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'my-react-app', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
-
-// const express = require('express');
-// const path = require('path');
-
-// const admin = require('firebase-admin');
-// const serviceAccount = require('./serviceAccountKey.json');
-// admin.initializeApp({ credential: admin.credential.cert(serviceAccount), });
-
-// const app = express();
-// app.use(express.json());
-
-// const db = admin.firestore();
-
-// const PORT = process.env.PORT || 5000;
-
-// // Вказуємо, де лежать статичні файли
-// app.use(express.static(path.join(__dirname, '..', 'my-react-app', 'build')));
-
-// // Отримання заявок користувача
-// app.post('/api/applications', async (req, res) => {
-//   const { userId, hackathonId, createdAt } = req.body;
-//   console.log('Request body:', req.body); // Логування отриманих даних
-
-//   // console.log('>>> BODY:', req.body);
-//   try {
-
-//     if (!userId || !hackathonId || !createdAt) {
-//       throw new Error("Missing required fields");
-//     }
-
-//     console.log("Saving application:", { userId, hackathonId, createdAt });
-
-//     const docRef = await db.collection('applications').add({
-//       userId,
-//       hackathonId,
-//       createdAt: new Date(createdAt),
-//     });
-
-//     res.status(201).json({ id: docRef.id });
-//   } catch (error) {
-//     console.error('Error in application saving: ', error);
-//     res.status(500).send('Server error: ' + error.message);
-//   }
-// });
-
-// // Збереження в бд заявок поданих користувачем
-// app.post('/api/applications', async (req, res) => {
-//   const { userId, hackathonId, createdAt } = req.body;
-
-//   try {
-//     await db.collection('applications').add({
-//       userId,
-//       hackathonId,
-//       createdAt: createdAt ? new Date(createdAt) : new Date()
-//     });
-//     res.status(201).send('Application saved')
-//   } catch (error) {
-//     console.error('Error in application saving: ', error);
-//     res.status(500).send('Server error');
-//   }
-// });
-
-
-// // Виведення в консоль про запущення сервера
-// app.listen(PORT, () => {
-//   console.log(`Сервер запущено на порту ${PORT}`);
-// });
-
-// // Обробка всіх інших запитів — повертаємо index.html
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '..', 'my-react-app', 'build', 'index.html'));
-// });
-
-// // Отримання заявок поданих користувачем в якомусб часовомц проміжку
-// // app.get('/api/applications', async (req, res) => {
-// //   const { userId, fromDate, toDate } = req.query;
-
-// //   try{
-// //     let query = db.collection('applications').where('userId', '==', userId);
-
-// //     if(fromDate) {
-// //       query = query.where('createdAt', '>=', new Date(fromDate));
-// //     }
-// //     if(toDate){
-// //       query = query.where('createdAt', '<=', new Date(toDate));
-// //     }
-// //     const snapshot = await query.get();
-// //     const results = snapshot.docs.map(doc => ({id: doc.id, ...doc.data() }));
-
-// //     res.json(results);
-// //   }catch(error){
-// //     console.log('Error in establishing the connection');
-// //     res.status(500).send('Server error');
-
-// //   }
-// // });
 
